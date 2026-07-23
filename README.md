@@ -1,1 +1,1 @@
-Opensourse Shnuk Project
+Open Sourse Shnuk Project (SSOP)
