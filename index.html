@@ -1,16 +1,15 @@
 <!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="scaT9KXhZ9SdTtI6q_GQ-ScAfi0M9rjQop3l9w-lfxY" />
     <title>Shnuk</title>
     
-    <!-- ===== FAVICON (иконка сайта) ===== -->
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="apple-touch-icon" href="icon.png">
 
     <style>
-        /* ===== ЛОКАЛЬНЫЙ ШРИФТ ===== */
         @font-face {
             font-family: 'ST-SimpleSquare';
             src: url('ST-SimpleSquare.ttf') format('truetype');
@@ -42,12 +41,9 @@
             overflow-x: hidden;
         }
 
-        /* ===== КУРСОР (только для десктопа) ===== */
+        /* ===== КУРСОР ===== */
         @media (hover: hover) and (pointer: fine) {
-            * {
-                cursor: none !important;
-            }
-            
+            * { cursor: none !important; }
             .custom-cursor {
                 position: fixed;
                 pointer-events: none;
@@ -58,7 +54,6 @@
                 will-change: transform;
                 display: block;
             }
-
             .custom-cursor img {
                 width: 100%;
                 height: 100%;
@@ -68,12 +63,8 @@
         }
 
         @media (hover: none) or (pointer: coarse) {
-            .custom-cursor {
-                display: none !important;
-            }
-            * {
-                cursor: auto !important;
-            }
+            .custom-cursor { display: none !important; }
+            * { cursor: auto !important; }
         }
 
         /* ===== ФОН ===== */
@@ -149,7 +140,7 @@
             margin-top: 10px;
         }
 
-        /* ===== ОБЩИЙ ТЕКСТ (для всего контента) ===== */
+        /* ===== ОБЩИЙ ТЕКСТ ===== */
         .text-content {
             font-family: 'ST-SimpleSquare', sans-serif;
             font-weight: 400;
@@ -187,7 +178,6 @@
             color: #990000;
         }
 
-        /* ===== ОБЩИЕ СЕКЦИИ ===== */
         .section {
             max-width: 900px;
             margin: 30px auto;
@@ -222,7 +212,7 @@
             color: #cc0000;
         }
 
-        /* ===== РАЗДЕЛ 1: ХАРАКТЕРИСТИКИ ===== */
+        /* ===== РАЗДЕЛ ХАРАКТЕРИСТИК ===== */
         .specs-section {
             max-width: 900px;
             margin: 30px auto;
@@ -233,34 +223,7 @@
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
             position: relative;
             z-index: 1;
-            overflow: hidden;
             border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .specs-section.highlight {
-            background: rgba(204, 0, 0, 0.15);
-            box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
-        }
-
-        .specs-section .wallpaper-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transform: translateX(-100%);
-            transition: transform 0.6s ease-out, opacity 0.5s ease-out;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .specs-section .wallpaper-layer.active {
-            opacity: 0.5;
-            transform: translateX(0);
         }
 
         .specs-section .section-title {
@@ -268,54 +231,132 @@
             z-index: 2;
         }
 
-        .specs-section .models-carousel {
+        .specs-section .models-container {
             position: relative;
             z-index: 2;
         }
 
-        .models-carousel {
+        .models-grid {
             display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 10px 0;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .model-card {
-            width: 180px;
-            padding: 18px;
+        .model-block {
+            padding: 25px 30px;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(4px);
             border: 1px solid #e0e0e0;
-            text-align: center;
-            transition: border-color 0.3s ease;
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
+            transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: none !important;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .model-card:hover {
+        .model-block:hover {
             border-color: #cc0000;
+            transform: translateX(6px);
+            box-shadow: 0 4px 20px rgba(204, 0, 0, 0.08);
         }
 
-        .model-card img {
+        .model-block .model-icon {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            perspective: 800px;
+        }
+
+        .model-block .model-icon img {
             width: 100%;
-            height: 120px;
+            height: 100%;
             object-fit: contain;
             display: block;
-            margin-bottom: 10px;
+            transition: transform 0.6s ease-out;
+            will-change: transform;
+            animation: rotate3d 12s ease-in-out infinite;
         }
 
-        .model-card .model-name {
+        @keyframes rotate3d {
+            0%, 100% {
+                transform: rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            25% {
+                transform: rotateX(5deg) rotateY(15deg) scale(1.02);
+            }
+            50% {
+                transform: rotateX(-3deg) rotateY(-10deg) scale(0.98);
+            }
+            75% {
+                transform: rotateX(4deg) rotateY(8deg) scale(1.01);
+            }
+        }
+
+        .model-block .model-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .model-block .model-name {
             font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 14px;
+            font-weight: 700;
+            font-size: 22px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: #000000;
+            margin-bottom: 12px;
         }
 
-        /* ===== РАЗДЕЛ 2: ПОСЛАНИЕ ===== */
+        .model-block .model-name span {
+            color: #cc0000;
+        }
+
+        .model-block .model-details {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .model-block .model-details .label {
+            color: #888888;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .model-block .model-details .value {
+            color: #000000;
+        }
+
+        .model-block .model-details .value .tag {
+            display: inline-block;
+            padding: 4px 16px;
+            border: 1px solid #000000;
+            font-size: 16px;
+            font-weight: 400;
+            background: transparent;
+            color: #000000;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 3px 6px 3px 0;
+        }
+
+        .model-block .model-details .value .tag:last-child {
+            margin-right: 0;
+        }
+
+        .model-block .model-details .image-inline {
+            display: block;
+            max-width: 300px;
+            width: 100%;
+            margin: 6px 0 12px;
+        }
+
+        /* ===== ОСТАЛЬНЫЕ РАЗДЕЛЫ ===== */
         .message-section {
             max-width: 900px;
             margin: 30px auto;
@@ -335,7 +376,6 @@
             box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
         }
 
-        /* ===== РАЗДЕЛ 3: PROJECTS ===== */
         .projects-section {
             max-width: 900px;
             margin: 30px auto;
@@ -391,7 +431,6 @@
             margin-bottom: 0;
         }
 
-        /* ===== РАЗДЕЛ 4: О ПРОЕКТЕ ===== */
         .about-section {
             max-width: 900px;
             margin: 30px auto;
@@ -447,7 +486,6 @@
             margin-top: 4px;
         }
 
-        /* ===== КНОПКА "ПОЛНАЯ ИСТОРИЯ" ===== */
         .history-btn {
             display: inline-block;
             padding: 14px 40px;
@@ -471,7 +509,6 @@
             transform: scale(1.03);
         }
 
-        /* ===== ОКНО ПОЛНОЙ ИСТОРИИ ===== */
         .history-overlay {
             position: fixed;
             top: 0;
@@ -548,7 +585,6 @@
             color: #222222;
         }
 
-        /* ===== РАЗДЕЛ 5: OPEN SOURCE ===== */
         .opensource-section {
             max-width: 900px;
             margin: 30px auto;
@@ -581,7 +617,6 @@
             display: block;
         }
 
-        /* ===== ФУТЕР ===== */
         .footer {
             width: 100%;
             padding: 30px 20px;
@@ -607,120 +642,6 @@
             color: #000000;
         }
 
-        /* ===== ПОПАП ХАРАКТЕРИСТИК ===== */
-        .specs-popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(6px);
-        }
-
-        .specs-popup-overlay.open {
-            display: flex;
-        }
-
-        .specs-popup {
-            background: #ffffff;
-            max-width: 650px;
-            width: 90%;
-            padding: 35px 45px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-            border-radius: 0;
-        }
-
-        .specs-popup-overlay.open .specs-popup {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .specs-popup .close-popup {
-            position: absolute;
-            top: 14px;
-            right: 18px;
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: #000000;
-            transition: transform 0.3s ease;
-            font-family: 'ST-SimpleSquare', sans-serif;
-        }
-
-        .specs-popup .close-popup:hover {
-            transform: rotate(90deg);
-            color: #cc0000;
-        }
-
-        .specs-popup .popup-title {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #000000;
-            border-bottom: 3px solid #cc0000;
-            padding-bottom: 10px;
-            margin-bottom: 18px;
-        }
-
-        .specs-popup .popup-title span {
-            color: #cc0000;
-        }
-
-        .specs-popup .popup-spec {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            margin-bottom: 14px;
-        }
-
-        .specs-popup .popup-spec .spec-label {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #888888;
-        }
-
-        .specs-popup .popup-spec .spec-value {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        .specs-popup .popup-spec .spec-value.tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .specs-popup .popup-spec .spec-value .tag {
-            padding: 4px 16px;
-            border: 1px solid #000000;
-            font-size: 13px;
-            font-weight: 400;
-            background: transparent;
-            color: #000000;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ===== КУРСОР ===== */
         .custom-cursor {
             position: fixed;
             pointer-events: none;
@@ -739,7 +660,6 @@
             display: block;
         }
 
-        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 38px; padding: 8px 20px; letter-spacing: 4px; }
             .hero .subtitle { font-size: 16px; letter-spacing: 2px; padding: 6px 16px; }
@@ -747,6 +667,12 @@
             .section-title { font-size: 24px; letter-spacing: 3px; }
             .text-content { font-size: 16px; }
             .specs-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
+            .model-block { padding: 20px; gap: 20px; flex-direction: column; text-align: center; }
+            .model-block .model-icon { width: 140px; height: 140px; }
+            .model-block .model-name { font-size: 18px; }
+            .model-block .model-details { font-size: 14px; }
+            .model-block .model-details .image-inline { max-width: 200px; margin: 6px auto 10px; }
+            .model-block .model-details .value .tag { font-size: 13px; padding: 3px 12px; }
             .message-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .projects-section { margin: 20px 16px; max-width: 100%; }
             .projects-section .projects-header { height: 150px; }
@@ -757,14 +683,10 @@
             .about-section .text-content { font-size: 15px; }
             .opensource-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .opensource-section .text-content { font-size: 15px; }
-            .model-card { width: 140px; padding: 12px; }
-            .model-card img { height: 90px; }
-            .model-card .model-name { font-size: 12px; }
             .team-member { width: 160px; }
             .team-member .member-name { font-size: 14px; }
             .team-member .member-role { font-size: 12px; }
             .footer .footer-text { font-size: 16px; letter-spacing: 4px; }
-            .specs-popup .popup-title { font-size: 20px; }
             .history-popup { padding: 30px 24px; }
             .history-popup .history-title { font-size: 24px; }
             .history-popup .history-text { font-size: 15px; }
@@ -779,6 +701,12 @@
             .section-title { font-size: 20px; letter-spacing: 2px; margin-bottom: 20px; }
             .text-content { font-size: 14px; }
             .specs-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
+            .model-block { padding: 16px; gap: 14px; }
+            .model-block .model-icon { width: 100px; height: 100px; }
+            .model-block .model-name { font-size: 15px; }
+            .model-block .model-details { font-size: 13px; }
+            .model-block .model-details .image-inline { max-width: 150px; margin: 6px auto 8px; }
+            .model-block .model-details .value .tag { font-size: 11px; padding: 2px 10px; margin: 2px 4px 2px 0; }
             .message-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .projects-section { margin: 14px 10px; max-width: 100%; }
             .projects-section .projects-header { height: 110px; }
@@ -789,16 +717,10 @@
             .about-section .text-content { font-size: 13px; }
             .opensource-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .opensource-section .text-content { font-size: 13px; }
-            .model-card { width: 110px; padding: 8px; }
-            .model-card img { height: 70px; }
-            .model-card .model-name { font-size: 10px; letter-spacing: 1px; }
             .team-member { width: 140px; padding: 6px; }
             .team-member .member-name { font-size: 12px; }
             .team-member .member-role { font-size: 11px; }
             .footer .footer-text { font-size: 14px; letter-spacing: 3px; }
-            .specs-popup { padding: 18px 14px; }
-            .specs-popup .popup-title { font-size: 17px; }
-            .specs-popup .popup-spec .spec-value { font-size: 14px; }
             .history-popup { padding: 20px 14px; }
             .history-popup .history-title { font-size: 20px; }
             .history-popup .history-text { font-size: 13px; }
@@ -809,17 +731,14 @@
 </head>
 <body>
 
-    <!-- ===== ФОН ===== -->
     <div class="wallpaper-bg"></div>
 
-    <!-- ===== КУРСОР ===== -->
     <div class="custom-cursor" id="customCursor">
         <img src="mouse.png" alt="Cursor">
     </div>
 
     <div class="main-content">
 
-        <!-- ===== ГЛАВНАЯ СТРАНИЦА ===== -->
         <section class="hero" id="hero">
             <div class="header-wrapper" id="scene3d">
                 <div class="header-3d">
@@ -831,21 +750,21 @@
 
         <!-- ===== РАЗДЕЛ 1: ХАРАКТЕРИСТИКИ ===== -->
         <section class="specs-section" id="specsSection">
-            <div class="wallpaper-layer" id="wallpaperLayer"></div>
             <div class="section-title"><span>ХАРАКТЕРИСТИКИ</span></div>
-            <div class="models-carousel" id="modelsCarousel"></div>
+            <div class="models-container">
+                <div class="models-grid" id="modelsGrid">
+                    <!-- Генерируется из JS -->
+                </div>
+            </div>
         </section>
 
         <!-- ===== РАЗДЕЛ 2: ПОСЛАНИЕ ===== -->
         <section class="message-section" id="messageSection">
             <div class="section-title"><span>ЭЛЕКТРОННАЯ ВЕРСИЯ ПОСЛАНИЯ SHNUK</span></div>
             <div class="text-content">
-                <p>Компания шнюк старается уделять огромное внимание качеству сборки и внешнему виду смартфона, но не смотря на это мы не всегда можем сразу выявлять брак в наших устройствах. если с вашем телефоном шнюк что-то случилось, вы всегда можете обратиться к нам, мы вернём вам деньги. устройство не причинит вам вреда если соблюдать меры безопасности.</p>
-
-                <p>Компании Шнюк уже больше трёх лет. И все это время мы ни на день не останавливались в развитии — всегда шли вперёд. Но наш путь — это не только наша заслуга. Это ваша заслуга. Если бы не вы, наши покупатели, те, кто выбирал и выбирает устройства Шнюк, нас бы просто не было. Поэтому, когда вы держите в руках телефон Шнюк, помните: именно благодаря вам уже завтра кто-то другой тоже сможет стать обладателем нового Шнюка.</p>
-
+                <p>Компания шнюк старается уделять огромное внимание качеству сборки и внешнему виду смартфона, но несмотря на это мы не всегда можем сразу выявлять брак в наших устройствах. Если с вашим телефоном шнюк что-то случилось, вы всегда можете обратиться к нам, мы вернём вам деньги. Устройство не причинит вам вреда, если соблюдать меры безопасности.</p>
+                <p>Компании Шнюк уже больше трёх лет. И всё это время мы ни на день не останавливались в развитии — всегда шли вперёд. Но наш путь — это не только наша заслуга. Это ваша заслуга. Если бы не вы, наши покупатели, те, кто выбирал и выбирает устройства Шнюк, нас бы просто не было. Поэтому, когда вы держите в руках телефон Шнюк, помните: именно благодаря вам уже завтра кто-то другой тоже сможет стать обладателем нового Шнюка.</p>
                 <p>Покупая Шнюк, вы становитесь не просто пользователем — вы становитесь частью нас. Мы всегда открыты к вашим идеям: возможно, именно ваше предложение ляжет в основу будущих моделей.</p>
-
                 <p><span class="highlight">С уважением, GLavin, Stepaska, Чапик, Роман Мужиков и Илья Бойков.</span></p>
             </div>
         </section>
@@ -866,7 +785,7 @@
         <section class="about-section" id="aboutSection">
             <div class="section-title"><span>О ПРОЕКТЕ</span></div>
             <div class="text-content">
-                <p>Компания Shnuk (Шнюк) основана в 2023 году <span class="highlight">Романом Мужиковым</span>. Компания производит бумажные телефоны. Они являются бумажными моделями и не имеют функционала реальных смартфонов. Название устройств Shnuk в оффициальных материалах "телефонами" и "смартфонами" являются шуточными и не имеют отношения к реальности. В проекте участвуют:</p>
+                <p>Компания Shnuk (Шнюк) основана в 2023 году <span class="highlight">Романом Мужиковым</span>. Компания производит бумажные телефоны. Они являются бумажными моделями и не имеют функционала реальных смартфонов. Название устройств Shnuk в официальных материалах "телефонами" и "смартфонами" являются шуточными и не имеют отношения к реальности. В проекте участвуют:</p>
             </div>
             <div class="team-grid">
                 <div class="team-member">
@@ -891,7 +810,6 @@
                 </div>
             </div>
 
-            <!-- КНОПКА "ПОЛНАЯ ИСТОРИЯ" -->
             <div style="text-align: center; margin-top: 30px;">
                 <button class="history-btn" id="historyBtn">Полная история</button>
             </div>
@@ -900,21 +818,18 @@
         <!-- ===== РАЗДЕЛ 5: OPEN SOURCE ===== -->
         <section class="opensource-section" id="opensourceSection">
             <div class="section-title"><span>ОБ OPEN SOURCE</span></div>
-            
             <div class="opensource-image">
                 <img src="opensourse.png" alt="Open Source">
             </div>
-
             <div class="text-content">
-                <p>Компания Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличатся по размеру и по качеству.</p>
-                
+                <p>Компания Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличаться по размеру и по качеству.</p>
                 <p>Если вы будете отдавать кому-то такую самодельную модель, то никогда не называйте её оригинальной.</p>
+                <p><a href="https://github.com/glavinmstislav-eng/shnuk-opensourse" target="_blank" style="color:#cc0000; text-decoration:underline; text-underline-offset:3px;">Исходники Shnuk</a></p>
             </div>
         </section>
 
     </div>
 
-    <!-- ===== ФУТЕР ===== -->
     <footer class="footer">
         <div class="footer-text">By <span>GLavin</span></div>
     </footer>
@@ -925,55 +840,52 @@
             <button class="close-history" id="historyClose">✕</button>
             <div class="history-title">ПОЛНАЯ ИСТОРИЯ</div>
             <div class="history-text">
-                <p>Компания Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства Shnuk имели низкую цену, но были сильно менее качественные, чем современные модели.
-Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Гллавин Мстислав совместно с Ильёй Степановым начали выпуск
-сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершен. Франшиза тапков продолжилась игрой
+                <p>Компания Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства Shnuk имели низкую цену, но были значительно менее качественными, чем современные модели.
+Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Главин Мстислав совместно с Ильёй Степановым начали выпуск
+сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась игрой
 по этой вселенной, которая была выпущена в сентябре 2026 года. В апреле 2026 года стартовали первые продажи за год.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== ПОПАП ХАРАКТЕРИСТИК ===== -->
-    <div class="specs-popup-overlay" id="specsPopup">
-        <div class="specs-popup">
-            <button class="close-popup" id="specsPopupClose">✕</button>
-            <div class="popup-title" id="popupTitle">SHNUK 2 <span>ECLIPSE</span></div>
-            <div class="popup-spec">
-                <div class="spec-label">Корпус</div>
-                <div class="spec-value tags" id="popupMaterials"></div>
-            </div>
-            <div class="popup-spec">
-                <div class="spec-label">ФУНКЦИИ</div>
-                <div class="spec-value" id="popupFunctions"></div>
             </div>
         </div>
     </div>
 
     <script>
         (function() {
-            const MODEL_DATA = {
-                "deviceeclipse.png": {
-                    "name": "Shnuk 2 Eclipse",
-                    "materials": ["укрепленная двойная бумага", "галлаграфические вставки", "статическое крепление"],
-                    "functions": "присутствует статическое крепление Clipse для крепления различных аксессуаров",
-                    "wallpaper": "eclipsewall.png",
-                    "displayName": "SHNUK 2 ECLIPSE"
+            const MODEL_DATA = [
+                {
+                    key: "deviceeclipse.png",
+                    name: "Shnuk 2 Eclipse",
+                    materials: [
+                        "укрепленная двойная бумага. За счет более дорогой и прочной технологии корпуса, а также составу клея, устойчивость устройства к смятиям выросла в 4 раза. На отдельных участках корпуса прочность возрасла до 10 раз",
+                        "галлаграфические вставки",
+                        "статическое крепление Shnuk Clipse"
+                    ],
+                    functions: "присутствует статическое крепление Shnuk Clipse, поддерживающее крепление фирменных аксессуаров Shnuk к устройству и крепление устройства к почти любой поверхности",
+                    displayName: "SHNUK 2 ECLIPSE",
+                    materialImage: "snk2.png",
+                    functionImage: "snkclipse.png"
                 },
-                "devicemineral.png": {
-                    "name": "Shnuk 2 Mineral",
-                    "materials": ["бумага", "галлаграфические вставки"],
-                    "functions": "статическое крепление Clipse отсутствует",
-                    "wallpaper": "mineralwall.png",
-                    "displayName": "SHNUK 2 MINERAL"
+                {
+                    key: "devicemineral.png",
+                    name: "Shnuk 2 Mineral",
+                    materials: ["бумага", "галлаграфические вставки"],
+                    functions: "статическое крепление Clipse отсутствует",
+                    displayName: "SHNUK 2 MINERAL",
+                    materialImage: null,
+                    functionImage: null
                 },
-                "devicepaper.png": {
-                    "name": "Shnuk 2 Paper",
-                    "materials": ["бумага", "гладкие вставки"],
-                    "functions": "статическое крепление Clipse отсутствует",
-                    "wallpaper": "paperwall.png",
-                    "displayName": "SHNUK 2 PAPER"
+                {
+                    key: "devicepaper.png",
+                    name: "Shnuk 2 Paper",
+                    materials: [
+                        "бумага. За счет измененной конструкции устройства, прочность к смятию в верхней части корпуса возрасла в 2 раза",
+                        "гладкие вставки"
+                    ],
+                    functions: "статическое крепление Clipse отсутствует",
+                    displayName: "SHNUK 2 PAPER",
+                    materialImage: "snk2p.png",
+                    functionImage: null
                 }
-            };
+            ];
 
             // ===== АУДИО =====
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1016,21 +928,13 @@
             const heading = document.getElementById('heading3d');
             const customCursor = document.getElementById('customCursor');
             const wrapper = document.getElementById('scene3d');
-            const wallpaperLayer = document.getElementById('wallpaperLayer');
-            const modelsCarousel = document.getElementById('modelsCarousel');
-            const specsPopup = document.getElementById('specsPopup');
-            const specsPopupClose = document.getElementById('specsPopupClose');
-            const popupTitle = document.getElementById('popupTitle');
-            const popupMaterials = document.getElementById('popupMaterials');
-            const popupFunctions = document.getElementById('popupFunctions');
+            const modelsGrid = document.getElementById('modelsGrid');
 
-            // История
             const historyOverlay = document.getElementById('historyOverlay');
             const historyBtn = document.getElementById('historyBtn');
             const historyClose = document.getElementById('historyClose');
 
             const MAX_ANGLE = 20;
-            let currentWallpaper = '';
 
             // ===== ИСТОРИЯ =====
             historyBtn.addEventListener('click', function() {
@@ -1054,16 +958,12 @@
                     if (historyOverlay.classList.contains('open')) {
                         historyOverlay.classList.remove('open');
                     }
-                    if (specsPopup.classList.contains('open')) {
-                        specsPopup.classList.remove('open');
-                    }
                 }
             });
 
-            // ===== ОПРЕДЕЛЕНИЕ УСТРОЙСТВА =====
+            // ===== 3D ВРАЩЕНИЕ ГЛАВНОГО ЗАГОЛОВКА =====
             const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768;
 
-            // ===== 3D ВРАЩЕНИЕ =====
             function getCenter(element) {
                 const rect = element.getBoundingClientRect();
                 return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
@@ -1084,7 +984,6 @@
                 heading.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
             }
 
-            // ===== ГИРОСКОП =====
             function updateRotationGyro(beta, gamma) {
                 if (!heading) return;
                 const angleX = Math.min(Math.max((beta || 0) * 0.3, -MAX_ANGLE), MAX_ANGLE);
@@ -1092,7 +991,6 @@
                 heading.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
             }
 
-            // ===== КУРСОР =====
             function updateCursor(clientX, clientY) {
                 if (customCursor) {
                     customCursor.style.left = clientX + 'px';
@@ -1120,7 +1018,6 @@
                         heading.style.transition = 'transform 0.5s ease-out';
                         setTimeout(() => { heading.style.transition = 'transform 0.1s ease-out'; }, 500);
                     }
-                    resetWallpaper();
                 });
 
                 document.addEventListener('mouseenter', function() {
@@ -1131,87 +1028,57 @@
                 if (customCursor) customCursor.style.display = 'block';
             }
 
-            // ===== ОБОИ =====
-            function setWallpaper(wallpaperFile) {
-                if (!wallpaperFile) {
-                    resetWallpaper();
-                    return;
-                }
-                if (currentWallpaper === wallpaperFile && wallpaperLayer.classList.contains('active')) {
-                    return;
-                }
-                currentWallpaper = wallpaperFile;
-                wallpaperLayer.style.backgroundImage = `url('${wallpaperFile}')`;
-                requestAnimationFrame(() => {
-                    wallpaperLayer.classList.add('active');
-                });
-            }
-
-            function resetWallpaper() {
-                wallpaperLayer.classList.remove('active');
-                setTimeout(() => {
-                    if (!wallpaperLayer.classList.contains('active')) {
-                        wallpaperLayer.style.backgroundImage = 'none';
-                        currentWallpaper = '';
-                    }
-                }, 550);
-            }
-
-            // ===== КАРУСЕЛЬ =====
+            // ===== ПОСТРОЕНИЕ МОДЕЛЕЙ =====
             function buildModels() {
-                modelsCarousel.innerHTML = '';
-                const keys = Object.keys(MODEL_DATA);
-                keys.forEach(key => {
-                    const data = MODEL_DATA[key];
-                    const card = document.createElement('div');
-                    card.className = 'model-card';
-                    card.dataset.model = key;
-                    card.innerHTML = `
-                        <img src="${key}" alt="${data.displayName}">
-                        <div class="model-name">${data.displayName}</div>
+                modelsGrid.innerHTML = '';
+                MODEL_DATA.forEach(data => {
+                    const block = document.createElement('div');
+                    block.className = 'model-block';
+
+                    const iconDiv = document.createElement('div');
+                    iconDiv.className = 'model-icon';
+                    iconDiv.innerHTML = `<img src="${data.key}" alt="${data.displayName}">`;
+
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'model-info';
+
+                    const nameDiv = document.createElement('div');
+                    nameDiv.className = 'model-name';
+                    const nameParts = data.displayName.split(' ');
+                    const lastName = nameParts.pop() || '';
+                    nameDiv.innerHTML = nameParts.join(' ') + ' <span>' + lastName + '</span>';
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'model-details';
+
+                    // Материалы с изображением (если есть)
+                    let materialsHtml = '';
+                    if (data.materialImage) {
+                        materialsHtml += `<img src="${data.materialImage}" alt="material" class="image-inline">`;
+                    }
+                    materialsHtml += data.materials.join(', ');
+
+                    // Функции с изображением (если есть)
+                    let functionsHtml = '';
+                    if (data.functionImage) {
+                        functionsHtml += `<img src="${data.functionImage}" alt="function" class="image-inline">`;
+                    }
+                    functionsHtml += data.functions;
+
+                    detailsDiv.innerHTML = `
+                        <div><span class="label">Корпус</span><br><span class="value">${materialsHtml}</span></div>
+                        <div style="margin-top:8px;"><span class="label">Функции</span><br><span class="value">${functionsHtml}</span></div>
                     `;
-                    card.addEventListener('click', function() {
-                        playClick();
-                        openSpecsPopup(key);
-                    });
-                    card.addEventListener('mouseenter', function() {
-                        if (data.wallpaper) {
-                            setWallpaper(data.wallpaper);
-                        }
-                    });
-                    card.addEventListener('mouseleave', function() {
-                        resetWallpaper();
-                    });
-                    modelsCarousel.appendChild(card);
+
+                    infoDiv.appendChild(nameDiv);
+                    infoDiv.appendChild(detailsDiv);
+
+                    block.appendChild(iconDiv);
+                    block.appendChild(infoDiv);
+
+                    modelsGrid.appendChild(block);
                 });
             }
-
-            // ===== ПОПАП =====
-            function openSpecsPopup(modelKey) {
-                const data = MODEL_DATA[modelKey];
-                if (!data) return;
-                const nameParts = data.displayName.split(' ');
-                const last = nameParts.pop() || '';
-                popupTitle.innerHTML = nameParts.join(' ') + ' <span>' + last + '</span>';
-                popupMaterials.innerHTML = data.materials.map(m => `<span class="tag">${m}</span>`).join('');
-                popupFunctions.textContent = data.functions || 'Не указано';
-                specsPopup.classList.add('open');
-            }
-
-            function closeSpecsPopup() {
-                specsPopup.classList.remove('open');
-            }
-
-            specsPopupClose.addEventListener('click', closeSpecsPopup);
-            specsPopup.addEventListener('click', function(e) {
-                if (e.target === specsPopup) closeSpecsPopup();
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && specsPopup.classList.contains('open')) {
-                    closeSpecsPopup();
-                }
-            });
 
             // ===== ИНИЦИАЛИЗАЦИЯ =====
             buildModels();
