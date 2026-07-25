@@ -1,1 +1,1 @@
-Open Sourse Shnuk Project
+Shnuk
