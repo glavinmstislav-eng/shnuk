@@ -349,25 +349,6 @@
             margin-right: 0;
         }
 
-        .model-block .model-details .image-inline {
-            display: block;
-            max-width: 300px;
-            width: 100%;
-            margin: 6px 0 12px;
-        }
-
-        /* ===== МОБИЛЬНАЯ ВЕРСИЯ — СКРЫВАЕМ ВСТАВКИ ===== */
-        @media (max-width: 768px) {
-            .model-block .model-details .image-inline {
-                display: none !important;
-            }
-            .model-block { padding: 20px; gap: 20px; flex-direction: column; text-align: center; }
-            .model-block .model-icon { width: 140px; height: 140px; }
-            .model-block .model-name { font-size: 18px; }
-            .model-block .model-details { font-size: 14px; }
-            .model-block .model-details .value .tag { font-size: 13px; padding: 3px 12px; }
-        }
-
         /* ===== ОСТАЛЬНЫЕ РАЗДЕЛЫ ===== */
         .message-section {
             max-width: 900px;
@@ -679,6 +660,11 @@
             .section-title { font-size: 24px; letter-spacing: 3px; }
             .text-content { font-size: 16px; }
             .specs-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
+            .model-block { padding: 20px; gap: 20px; flex-direction: column; text-align: center; }
+            .model-block .model-icon { width: 140px; height: 140px; }
+            .model-block .model-name { font-size: 18px; }
+            .model-block .model-details { font-size: 14px; }
+            .model-block .model-details .value .tag { font-size: 13px; padding: 3px 12px; }
             .message-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .projects-section { margin: 20px 16px; max-width: 100%; }
             .projects-section .projects-header { height: 150px; }
@@ -865,18 +851,14 @@
                         "статическое крепление Shnuk Clipse"
                     ],
                     functions: "присутствует статическое крепление Shnuk Clipse, поддерживающее крепление фирменных аксессуаров Shnuk к устройству и крепление устройства к почти любой поверхности",
-                    displayName: "SHNUK 2 ECLIPSE",
-                    materialImage: "snk2.png",
-                    functionImage: "snkclipse.png"
+                    displayName: "SHNUK 2 ECLIPSE"
                 },
                 {
                     key: "devicemineral.png",
                     name: "Shnuk 2 Mineral",
                     materials: ["бумага", "галлаграфические вставки"],
                     functions: "статическое крепление Clipse отсутствует",
-                    displayName: "SHNUK 2 MINERAL",
-                    materialImage: null,
-                    functionImage: null
+                    displayName: "SHNUK 2 MINERAL"
                 },
                 {
                     key: "devicepaper.png",
@@ -886,9 +868,7 @@
                         "гладкие вставки"
                     ],
                     functions: "статическое крепление Clipse отсутствует",
-                    displayName: "SHNUK 2 PAPER",
-                    materialImage: "snk2p.png",
-                    functionImage: null
+                    displayName: "SHNUK 2 PAPER"
                 }
             ];
 
@@ -1056,23 +1036,15 @@
                     const detailsDiv = document.createElement('div');
                     detailsDiv.className = 'model-details';
 
-                    // Материалы с изображением (если есть) — НО на мобильных скрываются через CSS
-                    let materialsHtml = '';
-                    if (data.materialImage) {
-                        materialsHtml += `<img src="${data.materialImage}" alt="material" class="image-inline">`;
-                    }
-                    materialsHtml += data.materials.join(', ');
+                    // Материалы — только текст (изображения удалены)
+                    const materialsText = data.materials.join(', ');
 
-                    // Функции с изображением (если есть) — НО на мобильных скрываются через CSS
-                    let functionsHtml = '';
-                    if (data.functionImage) {
-                        functionsHtml += `<img src="${data.functionImage}" alt="function" class="image-inline">`;
-                    }
-                    functionsHtml += data.functions;
+                    // Функции — только текст (изображения удалены)
+                    const functionsText = data.functions;
 
                     detailsDiv.innerHTML = `
-                        <div><span class="label">Корпус</span><br><span class="value">${materialsHtml}</span></div>
-                        <div style="margin-top:8px;"><span class="label">Функции</span><br><span class="value">${functionsHtml}</span></div>
+                        <div><span class="label">Корпус</span><br><span class="value">${materialsText}</span></div>
+                        <div style="margin-top:8px;"><span class="label">Функции</span><br><span class="value">${functionsText}</span></div>
                     `;
 
                     infoDiv.appendChild(nameDiv);
