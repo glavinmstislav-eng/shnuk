@@ -356,6 +356,18 @@
             margin: 6px 0 12px;
         }
 
+        /* ===== МОБИЛЬНАЯ ВЕРСИЯ — СКРЫВАЕМ ВСТАВКИ ===== */
+        @media (max-width: 768px) {
+            .model-block .model-details .image-inline {
+                display: none !important;
+            }
+            .model-block { padding: 20px; gap: 20px; flex-direction: column; text-align: center; }
+            .model-block .model-icon { width: 140px; height: 140px; }
+            .model-block .model-name { font-size: 18px; }
+            .model-block .model-details { font-size: 14px; }
+            .model-block .model-details .value .tag { font-size: 13px; padding: 3px 12px; }
+        }
+
         /* ===== ОСТАЛЬНЫЕ РАЗДЕЛЫ ===== */
         .message-section {
             max-width: 900px;
@@ -667,12 +679,6 @@
             .section-title { font-size: 24px; letter-spacing: 3px; }
             .text-content { font-size: 16px; }
             .specs-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .model-block { padding: 20px; gap: 20px; flex-direction: column; text-align: center; }
-            .model-block .model-icon { width: 140px; height: 140px; }
-            .model-block .model-name { font-size: 18px; }
-            .model-block .model-details { font-size: 14px; }
-            .model-block .model-details .image-inline { max-width: 200px; margin: 6px auto 10px; }
-            .model-block .model-details .value .tag { font-size: 13px; padding: 3px 12px; }
             .message-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .projects-section { margin: 20px 16px; max-width: 100%; }
             .projects-section .projects-header { height: 150px; }
@@ -705,7 +711,6 @@
             .model-block .model-icon { width: 100px; height: 100px; }
             .model-block .model-name { font-size: 15px; }
             .model-block .model-details { font-size: 13px; }
-            .model-block .model-details .image-inline { max-width: 150px; margin: 6px auto 8px; }
             .model-block .model-details .value .tag { font-size: 11px; padding: 2px 10px; margin: 2px 4px 2px 0; }
             .message-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .projects-section { margin: 14px 10px; max-width: 100%; }
@@ -855,7 +860,7 @@
                     key: "deviceeclipse.png",
                     name: "Shnuk 2 Eclipse",
                     materials: [
-                        "укрепленная двойная бумага. За счет более дорогой и прочной технологии корпуса, а также составу клея, устойчивость устройства к смятиям выросла в 4 раза. На отдельных участках корпуса прочность возрасла до 10 раз",
+                        "укрепленная двойная бумага. За счет более дорогой и прочной технологии корпуса, а также составу клея, устойчивость устройства к смятиям выросла в 4 раза. На отдельных участках корпуса прочность возрастает до 10 раз",
                         "галлаграфические вставки",
                         "статическое крепление Shnuk Clipse"
                     ],
@@ -1051,14 +1056,14 @@
                     const detailsDiv = document.createElement('div');
                     detailsDiv.className = 'model-details';
 
-                    // Материалы с изображением (если есть)
+                    // Материалы с изображением (если есть) — НО на мобильных скрываются через CSS
                     let materialsHtml = '';
                     if (data.materialImage) {
                         materialsHtml += `<img src="${data.materialImage}" alt="material" class="image-inline">`;
                     }
                     materialsHtml += data.materials.join(', ');
 
-                    // Функции с изображением (если есть)
+                    // Функции с изображением (если есть) — НО на мобильных скрываются через CSS
                     let functionsHtml = '';
                     if (data.functionImage) {
                         functionsHtml += `<img src="${data.functionImage}" alt="function" class="image-inline">`;
