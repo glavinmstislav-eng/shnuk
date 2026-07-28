@@ -349,6 +349,31 @@
             margin-right: 0;
         }
 
+        /* ===== НОВЫЙ РАЗДЕЛ: SHNUK X AXOGEN ===== */
+        .axogen-section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px 50px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            border-radius: 0;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .axogen-section .text-content {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .axogen-section .text-content a {
+            font-size: 20px;
+        }
+
         /* ===== ОСТАЛЬНЫЕ РАЗДЕЛЫ ===== */
         .message-section {
             max-width: 900px;
@@ -610,9 +635,10 @@
             display: block;
         }
 
+        /* ===== ФУТЕР С ИЗОБРАЖЕНИЕМ ===== */
         .footer {
             width: 100%;
-            padding: 30px 20px;
+            padding: 30px 20px 20px;
             text-align: center;
             position: relative;
             z-index: 2;
@@ -629,10 +655,22 @@
             color: #000000;
             text-transform: uppercase;
             text-shadow: none;
+            margin-bottom: 20px;
         }
 
         .footer .footer-text span {
             color: #000000;
+        }
+
+        .footer .footer-image {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .footer .footer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .custom-cursor {
@@ -679,11 +717,14 @@
             .team-member .member-name { font-size: 14px; }
             .team-member .member-role { font-size: 12px; }
             .footer .footer-text { font-size: 16px; letter-spacing: 4px; }
+            .footer .footer-image { max-width: 150px; }
             .history-popup { padding: 30px 24px; }
             .history-popup .history-title { font-size: 24px; }
             .history-popup .history-text { font-size: 15px; }
             .history-btn { padding: 12px 30px; font-size: 14px; letter-spacing: 3px; }
             .opensource-section .opensource-image { max-width: 100%; }
+            .axogen-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
+            .axogen-section .text-content { font-size: 18px; }
         }
 
         @media (max-width: 480px) {
@@ -712,11 +753,14 @@
             .team-member .member-name { font-size: 12px; }
             .team-member .member-role { font-size: 11px; }
             .footer .footer-text { font-size: 14px; letter-spacing: 3px; }
+            .footer .footer-image { max-width: 120px; }
             .history-popup { padding: 20px 14px; }
             .history-popup .history-title { font-size: 20px; }
             .history-popup .history-text { font-size: 13px; }
             .history-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
             .opensource-section .opensource-image { max-width: 100%; margin-bottom: 16px; }
+            .axogen-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
+            .axogen-section .text-content { font-size: 16px; }
         }
     </style>
 </head>
@@ -746,6 +790,15 @@
                 <div class="models-grid" id="modelsGrid">
                     <!-- Генерируется из JS -->
                 </div>
+            </div>
+        </section>
+
+        <!-- ===== НОВЫЙ РАЗДЕЛ: SHNUK X AXOGEN ===== -->
+        <section class="axogen-section" id="axogenSection">
+            <div class="section-title"><span>SHNUK X AXOGEN</span></div>
+            <div class="text-content">
+                <p>Коллабароция с Axogen!</p>
+                <p><a href="https://www.google.com" target="_blank">tiktok канал axogen</a></p>
             </div>
         </section>
 
@@ -823,6 +876,9 @@
 
     <footer class="footer">
         <div class="footer-text">By <span>GLavin</span></div>
+        <div class="footer-image">
+            <img src="axogen.png" alt="Axogen">
+        </div>
     </footer>
 
     <!-- ===== ОКНО ПОЛНОЙ ИСТОРИИ ===== -->
@@ -1036,10 +1092,7 @@
                     const detailsDiv = document.createElement('div');
                     detailsDiv.className = 'model-details';
 
-                    // Материалы — только текст (изображения удалены)
                     const materialsText = data.materials.join(', ');
-
-                    // Функции — только текст (изображения удалены)
                     const functionsText = data.functions;
 
                     detailsDiv.innerHTML = `
