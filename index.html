@@ -373,6 +373,37 @@
             margin: 20px auto !important;
         }
 
+        .axogen-section .tiktok-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+
+        .axogen-section .tiktok-wrapper:hover {
+            border-color: #cc0000;
+        }
+
+        .axogen-section .tiktok-wrapper .fallback-link {
+            font-size: 16px;
+            color: #888888;
+            letter-spacing: 1px;
+        }
+
+        .axogen-section .tiktok-wrapper .fallback-link a {
+            color: #cc0000;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .axogen-section .tiktok-wrapper .fallback-link a:hover {
+            color: #990000;
+        }
+
         /* ===== ОСТАЛЬНЫЕ РАЗДЕЛЫ ===== */
         .message-section {
             max-width: 900px;
@@ -798,17 +829,29 @@
             <div class="text-content">
                 <p>Коллабароция с Axogen!</p>
                 
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ilyasik2288" data-unique-id="ilyasik2288" data-embed-from="oembed" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 20px auto;">
-                    <section>
-                        <a target="_blank" href="https://www.tiktok.com/@ilyasik2288?refer=creator_embed">@ilyasik2288</a>
-                    </section>
-                </blockquote>
+                <!-- Виджет и ссылка для Axogen -->
+                <div class="tiktok-wrapper">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ilyasik2288" data-unique-id="ilyasik2288" data-embed-from="oembed" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 0 auto;">
+                        <section>
+                            <a target="_blank" href="https://www.tiktok.com/@ilyasik2288?refer=creator_embed">@ilyasik2288</a>
+                        </section>
+                    </blockquote>
+                    <div class="fallback-link">
+                        <a href="https://www.tiktok.com/@ilyasik2288" target="_blank">tiktok канал axogen</a>
+                    </div>
+                </div>
 
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@glavin64" data-unique-id="glavin64" data-embed-from="oembed" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 20px auto;">
-                    <section>
-                        <a target="_blank" href="https://www.tiktok.com/@glavin64?refer=creator_embed">@glavin64</a>
-                    </section>
-                </blockquote>
+                <!-- Виджет и ссылка для Shnuk -->
+                <div class="tiktok-wrapper">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@glavin64" data-unique-id="glavin64" data-embed-from="oembed" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 0 auto;">
+                        <section>
+                            <a target="_blank" href="https://www.tiktok.com/@glavin64?refer=creator_embed">@glavin64</a>
+                        </section>
+                    </blockquote>
+                    <div class="fallback-link">
+                        <a href="https://www.tiktok.com/@glavin64" target="_blank">tiktok канал shnuk</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -916,7 +959,7 @@
                     name: "Shnuk 2 Eclipse",
                     materials: [
                         "укрепленная двойная бумага. За счет более дорогой и прочной технологии корпуса, а также составу клея, устойчивость устройства к смятиям выросла в 4 раза. На отдельных участках корпуса прочность возрастает до 10 раз",
-                        "галлаграфические вставки",
+                        "галлаграфические вставки"
                     ],
                     functions: "Галлаграфическая подложка блока камер переливается на свету",
                     displayName: "SHNUK 2 ECLIPSE"
