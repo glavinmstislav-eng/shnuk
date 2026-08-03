@@ -404,6 +404,252 @@
             color: #990000;
         }
 
+        /* ===== РАЗДЕЛ: ДЛЯ РАЗРАБОТЧИКОВ ===== */
+        .dev-section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px 50px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            border-radius: 0;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .dev-section .dev-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dev-section .dev-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #cc0000;
+            color: #ffffff;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 0;
+            cursor: none !important;
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .dev-section .dev-btn:hover {
+            background: #990000;
+            transform: scale(1.03);
+        }
+
+        /* ===== СТРАНИЦА T3 (О ДИЗАЙНЕ SHNUK) ===== */
+        .t3-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .t3-page.open {
+            display: block;
+        }
+
+        .t3-page .t3-header {
+            width: 100%;
+            padding: 30px 20px;
+            background: #cc0000;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .t3-page .t3-header h1 {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .t3-page .t3-close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: none !important;
+            z-index: 20;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .t3-page .t3-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .t3-page .t3-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .t3-page .t3-content .t3-block {
+            margin-bottom: 50px;
+        }
+
+        .t3-page .t3-content .t3-block h2 {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #000000;
+            border-bottom: 3px solid #cc0000;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .t3-page .t3-content .t3-block p {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #222222;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .t3-page .t3-content .t3-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .t3-page .t3-content .t3-block .t3-image {
+            margin: 15px 0;
+            max-width: 100%;
+        }
+
+        .t3-page .t3-content .t3-block .t3-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* ===== СТРАНИЦА OPEN SOURCE ===== */
+        .opensource-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .opensource-page.open {
+            display: block;
+        }
+
+        .opensource-page .os-header {
+            width: 100%;
+            padding: 30px 20px;
+            background: #cc0000;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .opensource-page .os-header h1 {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .opensource-page .os-close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: none !important;
+            z-index: 20;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .opensource-page .os-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .opensource-page .os-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .opensource-page .os-content .os-image {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .opensource-page .os-content .os-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .opensource-page .os-content p {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #222222;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .opensource-page .os-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .opensource-page .os-content a {
+            color: #cc0000;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .opensource-page .os-content a:hover {
+            color: #990000;
+        }
+
         /* ===== ОСТАЛЬНЫЕ РАЗДЕЛЫ ===== */
         .message-section {
             max-width: 900px;
@@ -633,38 +879,6 @@
             color: #222222;
         }
 
-        .opensource-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .opensource-section.highlight {
-            background: rgba(204, 0, 0, 0.15);
-            box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
-        }
-
-        .opensource-section .opensource-image {
-            width: 100%;
-            max-width: 600px;
-            display: block;
-            margin: 0 auto 30px;
-        }
-
-        .opensource-section .opensource-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         /* ===== ФУТЕР С ИЗОБРАЖЕНИЕМ ===== */
         .footer {
             width: 100%;
@@ -741,8 +955,6 @@
             .projects-section .projects-content .text-content { font-size: 16px; }
             .about-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .about-section .text-content { font-size: 15px; }
-            .opensource-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .opensource-section .text-content { font-size: 15px; }
             .team-member { width: 160px; }
             .team-member .member-name { font-size: 14px; }
             .team-member .member-role { font-size: 12px; }
@@ -752,9 +964,14 @@
             .history-popup .history-title { font-size: 24px; }
             .history-popup .history-text { font-size: 15px; }
             .history-btn { padding: 12px 30px; font-size: 14px; letter-spacing: 3px; }
-            .opensource-section .opensource-image { max-width: 100%; }
             .axogen-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .axogen-section .text-content { font-size: 18px; }
+            .dev-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
+            .t3-page .t3-header h1 { font-size: 28px; }
+            .t3-page .t3-content .t3-block h2 { font-size: 24px; }
+            .t3-page .t3-content .t3-block p { font-size: 15px; }
+            .opensource-page .os-header h1 { font-size: 28px; }
+            .opensource-page .os-content p { font-size: 15px; }
         }
 
         @media (max-width: 480px) {
@@ -777,8 +994,6 @@
             .projects-section .projects-content .text-content { font-size: 14px; }
             .about-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .about-section .text-content { font-size: 13px; }
-            .opensource-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .opensource-section .text-content { font-size: 13px; }
             .team-member { width: 140px; padding: 6px; }
             .team-member .member-name { font-size: 12px; }
             .team-member .member-role { font-size: 11px; }
@@ -788,9 +1003,17 @@
             .history-popup .history-title { font-size: 20px; }
             .history-popup .history-text { font-size: 13px; }
             .history-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
-            .opensource-section .opensource-image { max-width: 100%; margin-bottom: 16px; }
             .axogen-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .axogen-section .text-content { font-size: 16px; }
+            .dev-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
+            .dev-section .dev-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
+            .t3-page .t3-header h1 { font-size: 22px; }
+            .t3-page .t3-content .t3-block h2 { font-size: 20px; }
+            .t3-page .t3-content .t3-block p { font-size: 13px; }
+            .t3-page .t3-close { font-size: 30px; top: 15px; right: 20px; }
+            .opensource-page .os-header h1 { font-size: 22px; }
+            .opensource-page .os-content p { font-size: 13px; }
+            .opensource-page .os-close { font-size: 30px; top: 15px; right: 20px; }
         }
     </style>
 </head>
@@ -829,7 +1052,6 @@
             <div class="text-content">
                 <p>Коллабароция с Axogen!</p>
                 
-                <!-- Виджет и ссылка для Axogen -->
                 <div class="tiktok-wrapper">
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ilyasik2288" data-unique-id="ilyasik2288" data-embed-from="oembed" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 0 auto;">
                         <section>
@@ -841,7 +1063,6 @@
                     </div>
                 </div>
 
-                <!-- Виджет и ссылка для Shnuk -->
                 <div class="tiktok-wrapper">
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@glavin64" data-unique-id="glavin64" data-embed-from="oembed" data-embed-type="creator" style="max-width:780px; min-width:288px; margin: 0 auto;">
                         <section>
@@ -912,16 +1133,15 @@
             </div>
         </section>
 
-        <!-- ===== РАЗДЕЛ 5: OPEN SOURCE ===== -->
-        <section class="opensource-section" id="opensourceSection">
-            <div class="section-title"><span>ОБ OPEN SOURCE</span></div>
-            <div class="opensource-image">
-                <img src="opensourse.png" alt="Open Source">
-            </div>
+        <!-- ===== РАЗДЕЛ: ДЛЯ РАЗРАБОТЧИКОВ ===== -->
+        <section class="dev-section" id="devSection">
+            <div class="section-title"><span>ДЛЯ РАЗРАБОТЧИКОВ</span></div>
             <div class="text-content">
-                <p>Компания Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличаться по размеру и по качеству.</p>
-                <p>Если вы будете отдавать кому-то такую самодельную модель, то никогда не называйте её оригинальной.</p>
-                <p><a href="https://github.com/glavinmstislav-eng/shnuk-opensourse" target="_blank" style="color:#cc0000; text-decoration:underline; text-underline-offset:3px;">Исходники Shnuk</a></p>
+                <p>Здесь собраны материалы для разработчиков и дизайнеров, работающих с продуктами Shnuk.</p>
+            </div>
+            <div class="dev-buttons">
+                <button class="dev-btn" id="openSourceBtn">Open Source</button>
+                <button class="dev-btn" id="t3Btn">T3</button>
             </div>
         </section>
 
@@ -944,6 +1164,72 @@
 Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Главин Мстислав совместно с Ильёй Степановым начали выпуск
 сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась игрой
 по этой вселенной, которая была выпущена в сентябре 2026 года. В апреле 2026 года стартовали первые продажи за год.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== СТРАНИЦА OPEN SOURCE ===== -->
+    <div class="opensource-page" id="opensourcePage">
+        <div class="os-header">
+            <h1>ОБ OPEN SOURCE</h1>
+        </div>
+        <button class="os-close" id="osClose">✕</button>
+
+        <div class="os-content">
+            <div class="os-image">
+                <img src="opensourse.png" alt="Open Source">
+            </div>
+            <p>Компания Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличаться по размеру и по качеству.</p>
+            <p>Если вы будете отдавать кому-то такую самодельную модель, то никогда не называйте её оригинальной.</p>
+            <p><a href="https://github.com/glavinmstislav-eng/shnuk-opensourse" target="_blank">Исходники Shnuk</a></p>
+        </div>
+    </div>
+
+    <!-- ===== СТРАНИЦА T3 (О ДИЗАЙНЕ SHNUK) ===== -->
+    <div class="t3-page" id="t3Page">
+        <div class="t3-header">
+            <h1>О ДИЗАЙНЕ SHNUK</h1>
+        </div>
+        <button class="t3-close" id="t3Close">✕</button>
+
+        <div class="t3-content">
+            <!-- Введение -->
+            <div class="t3-block" id="t3-intro">
+                <h2>Введение</h2>
+                <p>Начнем с основ фирменного стиля Shnuk. В его основе лежит индустриальный эстетический подход, отличительными чертами которого выступают унифицированная цветовая палитра и строгая геометрия без лишних деталей.</p>
+                <p>Если вы планируете предложить нам концепцию внешнего вида какого-либо устройства, настоятельно рекомендуем опираться на данную статью. Это поможет вашему проекту успешно пройти внутреннюю проверку и значительно повысит его шансы на воплощение в реальную модель. Материал будет одинаково полезен как для специалистов по компьютерной графике, стремящихся точно воспроизвести стиль в цифровых сценах, так и для инженеров, занимающихся созданием физических прототипов в нашей дизайн-философии.</p>
+            </div>
+
+            <!-- Окна и цвета -->
+            <div class="t3-block" id="t3-windows">
+                <h2>Окна и цвета</h2>
+                <p>Ключевое внимание стоит уделить цветам - именно они придают стилю Shnuk ту самую узнаваемую индивидуальность.</p>
+                <div class="t3-image">
+                    <img src="t3/colors.png" alt="Цветовая палитра Shnuk">
+                </div>
+                <p>Базовая палитра насчитывает четыре основных цвета: красный, серый, черный и белый.</p>
+                <p>Белый цвет, как правило, отводится под фоновые поверхности окон, а также используется для набора текста в заголовках. Красный применяется для подложек заголовков и тех элементов интерфейса, которые требуют визуального акцента. Черный предназначен для основного массива текста, тогда как серый традиционно закреплен за второстепенными элементами, не претендующими на первое место в иерархии. Рекомендуется использовать палитру Shnuk именно в таком распределении ролей, чтобы сохранить аутентичность.</p>
+                <p>Теперь перейдем к оконным элементам. В дизайне Shnuk предусмотрено два типа окон: фоновые подложки для разделов (выступающие в роли базовой поверхности) и стандартные окна, чаще всего всплывающие. Все они выполняются в белом цвете и не имеют закруглений по углам. Для отделения окон от основного фона допускается применение легких, едва заметных теней, обеспечивающих необходимую глубину композиции.</p>
+            </div>
+
+            <!-- Текст -->
+            <div class="t3-block" id="t3-text">
+                <h2>Текст</h2>
+                <div class="t3-image">
+                    <img src="t3/font.png" alt="Шрифт ST-Simple-Square">
+                </div>
+                <p>Для всех текстовых элементов в системе используется единый моноширинный шрифт ST-Simple-Square. Заголовки всегда размещаются на красной подложке строгой прямоугольной формы (без закруглений), при этом сам текст на таких подложках остается белым для максимальной контрастности.</p>
+                <p>Главные заголовочные блоки (например, название всей страницы) могут иметь дополнительную интерактивность: на ПК они способны вращаться в трехмерном пространстве, отслеживая движение курсора, а на мобильных устройствах - менять угол наклона за счет данных гироскопа. Аналогичный принцип оформления применяется и к кнопкам: они также оснащаются красной подложкой, а их текстовое содержимое неизменно выполняется белым цветом.</p>
+            </div>
+
+            <!-- Другие элементы -->
+            <div class="t3-block" id="t3-elements">
+                <h2>Другие элементы</h2>
+                <div class="t3-image">
+                    <img src="t3/elements.png" alt="Геометрические элементы Shnuk">
+                </div>
+                <p>В визуальной системе Shnuk активно используются простые геометрические фигуры, которые служат инструментами для смыслового выделения и структурного подчеркивания важных зон. Особенно широко этот прием применяется при проектировании корпусов устройств - достаточно взглянуть на оформление камерного блока в смартфонах компании, где геометрия играет ключевую роль.</p>
+                <p>Основными формами в нашем дизайне являются круг, квадрат, прямоугольник и пятиугольник. Важное правило: все перечисленные фигуры лишены скруглений по краям, что соответствует общей суровой и технологичной эстетике бренда.</p>
             </div>
         </div>
     </div>
@@ -1030,6 +1316,14 @@
             const historyBtn = document.getElementById('historyBtn');
             const historyClose = document.getElementById('historyClose');
 
+            const t3Page = document.getElementById('t3Page');
+            const t3Btn = document.getElementById('t3Btn');
+            const t3Close = document.getElementById('t3Close');
+
+            const opensourcePage = document.getElementById('opensourcePage');
+            const openSourceBtn = document.getElementById('openSourceBtn');
+            const osClose = document.getElementById('osClose');
+
             const MAX_ANGLE = 20;
 
             // ===== ИСТОРИЯ =====
@@ -1054,6 +1348,54 @@
                     if (historyOverlay.classList.contains('open')) {
                         historyOverlay.classList.remove('open');
                     }
+                    if (t3Page.classList.contains('open')) {
+                        t3Page.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                    if (opensourcePage.classList.contains('open')) {
+                        opensourcePage.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+
+            // ===== OPEN SOURCE СТРАНИЦА =====
+            openSourceBtn.addEventListener('click', function() {
+                playClick();
+                opensourcePage.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            osClose.addEventListener('click', function() {
+                playClick();
+                opensourcePage.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            opensourcePage.addEventListener('click', function(e) {
+                if (e.target === opensourcePage) {
+                    opensourcePage.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ===== T3 СТРАНИЦА =====
+            t3Btn.addEventListener('click', function() {
+                playClick();
+                t3Page.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            t3Close.addEventListener('click', function() {
+                playClick();
+                t3Page.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            t3Page.addEventListener('click', function(e) {
+                if (e.target === t3Page) {
+                    t3Page.classList.remove('open');
+                    document.body.style.overflow = '';
                 }
             });
 
