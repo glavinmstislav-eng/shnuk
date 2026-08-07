@@ -140,6 +140,108 @@
             margin-top: 10px;
         }
 
+        /* ===== БЛОК TAPOK ===== */
+        .tapok-section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .tapok-section .tapok-image {
+            cursor: pointer;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .tapok-section .tapok-image:hover {
+            transform: scale(1.02);
+        }
+
+        .tapok-section .tapok-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ===== СТРАНИЦА TAPOK STORY ===== */
+        .tapok-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .tapok-page.open {
+            display: block;
+        }
+
+        .tapok-page .tapok-header {
+            width: 100%;
+            padding: 40px 20px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #ffffff;
+        }
+
+        .tapok-page .tapok-header h1 {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ffffff;
+            display: inline-block;
+            padding: 10px 40px;
+            background: #cc0000;
+        }
+
+        .tapok-page .tapok-close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            font-size: 40px;
+            color: #000000;
+            cursor: none !important;
+            z-index: 20;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .tapok-page .tapok-close:hover {
+            transform: rotate(90deg);
+            color: #cc0000;
+        }
+
+        .tapok-page .tapok-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            text-align: center;
+        }
+
+        .tapok-page .tapok-content .tapok-message {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 1.8;
+            color: #222222;
+            letter-spacing: 0.5px;
+            padding: 40px 20px;
+        }
+
         /* ===== ОБЩИЙ ТЕКСТ ===== */
         .text-content {
             font-family: 'ST-SimpleSquare', sans-serif;
@@ -172,6 +274,7 @@
             text-decoration: underline;
             text-underline-offset: 3px;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .text-content a:hover {
@@ -203,13 +306,16 @@
             font-size: 32px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: #000000;
+            color: #ffffff;
             text-align: center;
             margin-bottom: 30px;
+            display: inline-block;
+            padding: 10px 40px;
+            background: #cc0000;
         }
 
         .section-title span {
-            color: #cc0000;
+            color: #ffffff;
         }
 
         /* ===== РАЗДЕЛ ХАРАКТЕРИСТИК ===== */
@@ -229,6 +335,7 @@
         .specs-section .section-title {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .specs-section .models-container {
@@ -365,6 +472,10 @@
             text-align: center;
         }
 
+        .axogen-section .section-title {
+            text-align: center;
+        }
+
         .axogen-section .text-content {
             font-size: 20px;
         }
@@ -420,6 +531,10 @@
             text-align: center;
         }
 
+        .dev-section .section-title {
+            text-align: center;
+        }
+
         .dev-section .dev-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -450,6 +565,31 @@
             transform: scale(1.03);
         }
 
+        /* ===== РАЗДЕЛ: ЗАКОН ===== */
+        .law-section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px 50px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            border-radius: 0;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .law-section .section-title {
+            text-align: center;
+        }
+
+        .law-section .text-content {
+            font-size: 20px;
+            text-align: center;
+        }
+
         /* ===== СТРАНИЦА T3 (О ДИЗАЙНЕ SHNUK) ===== */
         .t3-page {
             display: none;
@@ -470,12 +610,12 @@
 
         .t3-page .t3-header {
             width: 100%;
-            padding: 30px 20px;
-            background: #cc0000;
+            padding: 40px 20px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 10;
+            background: #ffffff;
         }
 
         .t3-page .t3-header h1 {
@@ -485,6 +625,9 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #ffffff;
+            display: inline-block;
+            padding: 10px 40px;
+            background: #cc0000;
         }
 
         .t3-page .t3-close {
@@ -494,7 +637,7 @@
             background: none;
             border: none;
             font-size: 40px;
-            color: #ffffff;
+            color: #000000;
             cursor: none !important;
             z-index: 20;
             font-family: 'ST-SimpleSquare', sans-serif;
@@ -503,6 +646,7 @@
 
         .t3-page .t3-close:hover {
             transform: rotate(90deg);
+            color: #cc0000;
         }
 
         .t3-page .t3-content {
@@ -521,9 +665,10 @@
             font-size: 28px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #000000;
-            border-bottom: 3px solid #cc0000;
-            padding-bottom: 12px;
+            color: #ffffff;
+            display: inline-block;
+            padding: 8px 30px;
+            background: #cc0000;
             margin-bottom: 20px;
         }
 
@@ -573,12 +718,12 @@
 
         .opensource-page .os-header {
             width: 100%;
-            padding: 30px 20px;
-            background: #cc0000;
+            padding: 40px 20px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 10;
+            background: #ffffff;
         }
 
         .opensource-page .os-header h1 {
@@ -588,6 +733,9 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #ffffff;
+            display: inline-block;
+            padding: 10px 40px;
+            background: #cc0000;
         }
 
         .opensource-page .os-close {
@@ -597,7 +745,7 @@
             background: none;
             border: none;
             font-size: 40px;
-            color: #ffffff;
+            color: #000000;
             cursor: none !important;
             z-index: 20;
             font-family: 'ST-SimpleSquare', sans-serif;
@@ -606,6 +754,7 @@
 
         .opensource-page .os-close:hover {
             transform: rotate(90deg);
+            color: #cc0000;
         }
 
         .opensource-page .os-content {
@@ -663,6 +812,10 @@
             z-index: 1;
             border-radius: 0;
             transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .message-section .section-title {
+            text-align: center;
         }
 
         .message-section.highlight {
@@ -737,6 +890,10 @@
             z-index: 1;
             border-radius: 0;
             transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-section .section-title {
+            text-align: center;
         }
 
         .about-section.highlight {
@@ -865,9 +1022,10 @@
             font-size: 28px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #000000;
-            border-bottom: 3px solid #cc0000;
-            padding-bottom: 12px;
+            color: #ffffff;
+            display: inline-block;
+            padding: 10px 30px;
+            background: #cc0000;
             margin-bottom: 20px;
         }
 
@@ -877,6 +1035,17 @@
             font-size: 17px;
             line-height: 1.8;
             color: #222222;
+        }
+
+        .history-popup .history-text .tapok-link {
+            color: #cc0000;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .history-popup .history-text .tapok-link:hover {
+            color: #990000;
         }
 
         /* ===== ФУТЕР С ИЗОБРАЖЕНИЕМ ===== */
@@ -939,7 +1108,7 @@
             .hero h1 { font-size: 38px; padding: 8px 20px; letter-spacing: 4px; }
             .hero .subtitle { font-size: 16px; letter-spacing: 2px; padding: 6px 16px; }
             .section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .section-title { font-size: 24px; letter-spacing: 3px; }
+            .section-title { font-size: 24px; letter-spacing: 3px; padding: 8px 24px; }
             .text-content { font-size: 16px; }
             .specs-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .model-block { padding: 20px; gap: 20px; flex-direction: column; text-align: center; }
@@ -961,16 +1130,21 @@
             .footer .footer-text { font-size: 16px; letter-spacing: 4px; }
             .footer .footer-image { max-width: 150px; }
             .history-popup { padding: 30px 24px; }
-            .history-popup .history-title { font-size: 24px; }
+            .history-popup .history-title { font-size: 24px; padding: 8px 20px; }
             .history-popup .history-text { font-size: 15px; }
             .history-btn { padding: 12px 30px; font-size: 14px; letter-spacing: 3px; }
             .axogen-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .axogen-section .text-content { font-size: 18px; }
             .dev-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .t3-page .t3-header h1 { font-size: 28px; }
-            .t3-page .t3-content .t3-block h2 { font-size: 24px; }
+            .law-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
+            .law-section .text-content { font-size: 18px; }
+            .tapok-section { margin: 20px 16px; }
+            .tapok-page .tapok-header h1 { font-size: 28px; padding: 8px 24px; }
+            .tapok-page .tapok-content .tapok-message { font-size: 20px; padding: 30px 15px; }
+            .t3-page .t3-header h1 { font-size: 28px; padding: 8px 24px; }
+            .t3-page .t3-content .t3-block h2 { font-size: 24px; padding: 6px 20px; }
             .t3-page .t3-content .t3-block p { font-size: 15px; }
-            .opensource-page .os-header h1 { font-size: 28px; }
+            .opensource-page .os-header h1 { font-size: 28px; padding: 8px 24px; }
             .opensource-page .os-content p { font-size: 15px; }
         }
 
@@ -978,7 +1152,7 @@
             .hero h1 { font-size: 28px; padding: 5px 12px; letter-spacing: 3px; }
             .hero .subtitle { font-size: 14px; letter-spacing: 1px; padding: 4px 10px; }
             .section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .section-title { font-size: 20px; letter-spacing: 2px; margin-bottom: 20px; }
+            .section-title { font-size: 20px; letter-spacing: 2px; padding: 6px 16px; margin-bottom: 20px; }
             .text-content { font-size: 14px; }
             .specs-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .model-block { padding: 16px; gap: 14px; }
@@ -1000,18 +1174,24 @@
             .footer .footer-text { font-size: 14px; letter-spacing: 3px; }
             .footer .footer-image { max-width: 120px; }
             .history-popup { padding: 20px 14px; }
-            .history-popup .history-title { font-size: 20px; }
+            .history-popup .history-title { font-size: 20px; padding: 6px 16px; }
             .history-popup .history-text { font-size: 13px; }
             .history-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
             .axogen-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .axogen-section .text-content { font-size: 16px; }
             .dev-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .dev-section .dev-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
-            .t3-page .t3-header h1 { font-size: 22px; }
-            .t3-page .t3-content .t3-block h2 { font-size: 20px; }
+            .law-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
+            .law-section .text-content { font-size: 16px; }
+            .tapok-section { margin: 14px 10px; }
+            .tapok-page .tapok-header h1 { font-size: 22px; padding: 6px 16px; }
+            .tapok-page .tapok-content .tapok-message { font-size: 16px; padding: 20px 10px; }
+            .tapok-page .tapok-close { font-size: 30px; top: 15px; right: 20px; }
+            .t3-page .t3-header h1 { font-size: 22px; padding: 6px 16px; }
+            .t3-page .t3-content .t3-block h2 { font-size: 20px; padding: 4px 14px; }
             .t3-page .t3-content .t3-block p { font-size: 13px; }
             .t3-page .t3-close { font-size: 30px; top: 15px; right: 20px; }
-            .opensource-page .os-header h1 { font-size: 22px; }
+            .opensource-page .os-header h1 { font-size: 22px; padding: 6px 16px; }
             .opensource-page .os-content p { font-size: 13px; }
             .opensource-page .os-close { font-size: 30px; top: 15px; right: 20px; }
         }
@@ -1034,6 +1214,13 @@
                 </div>
             </div>
             <div class="subtitle">Добро пожаловать!</div>
+        </section>
+
+        <!-- ===== БЛОК TAPOK (перед первым разделом) ===== -->
+        <section class="tapok-section" id="tapokSection">
+            <div class="tapok-image" id="tapokImage">
+                <img src="tapok.png" alt="Tapok Story">
+            </div>
         </section>
 
         <!-- ===== РАЗДЕЛ 1: ХАРАКТЕРИСТИКИ ===== -->
@@ -1147,6 +1334,14 @@
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ: ЗАКОН ===== -->
+        <section class="law-section" id="lawSection">
+            <div class="section-title"><span>ЗАКОН</span></div>
+            <div class="text-content">
+                <p>Компания Shnuk НЕ занимается коммерческой деятельностью, мы продаем устройства в малых партиях, без цели заработка. Мы всегда говорим покупателям всё об устройствах. Если же покупателю что-то не понравится в устройстве, то он всегда может вернуть его нам и получить обратно свои деньги, с условием, что он никак не ухудшал состояние устройства.</p>
+            </div>
+        </section>
+
     </div>
 
     <footer class="footer">
@@ -1164,8 +1359,22 @@
             <div class="history-text">
                 <p>Компания Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства Shnuk имели низкую цену, но были значительно менее качественными, чем современные модели.
 Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Главин Мстислав совместно с Ильёй Степановым начали выпуск
-сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась игрой
+сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась <a class="tapok-link" id="tapokLinkInHistory">игрой по тапкам</a>
 по этой вселенной, которая была выпущена в сентябре 2026 года. В апреле 2026 года стартовали первые продажи за год.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== СТРАНИЦА TAPOK STORY ===== -->
+    <div class="tapok-page" id="tapokPage">
+        <div class="tapok-header">
+            <h1>TAPOK STORY</h1>
+        </div>
+        <button class="tapok-close" id="tapokClose">✕</button>
+
+        <div class="tapok-content">
+            <div class="tapok-message">
+                Игра Tapok Story еще не вышла, пока что данный раздел не рабочий
             </div>
         </div>
     </div>
@@ -1271,43 +1480,6 @@
                 }
             ];
 
-            // ===== АУДИО =====
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            let isMusicPlaying = false;
-            const musicAudio = new Audio('music.mp3');
-            musicAudio.loop = true;
-            musicAudio.volume = 0.5;
-
-            const clickAudio = new Audio('click.mp3');
-            clickAudio.volume = 0.7;
-
-            function playClick() {
-                try {
-                    if (audioCtx.state === 'suspended') audioCtx.resume();
-                    clickAudio.currentTime = 0;
-                    clickAudio.play().catch(() => {});
-                } catch (e) {}
-            }
-
-            let musicStarted = false;
-
-            function startMusicOnFirstClick() {
-                if (musicStarted) return;
-                musicStarted = true;
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                musicAudio.play().catch(() => {});
-                isMusicPlaying = true;
-                document.removeEventListener('click', startMusicOnFirstClick);
-                document.removeEventListener('keydown', startMusicOnFirstClick);
-                document.removeEventListener('touchstart', startMusicOnFirstClick);
-            }
-
-            document.addEventListener('click', startMusicOnFirstClick);
-            document.addEventListener('keydown', startMusicOnFirstClick);
-            document.addEventListener('touchstart', startMusicOnFirstClick);
-
             // ===== DOM =====
             const heading = document.getElementById('heading3d');
             const customCursor = document.getElementById('customCursor');
@@ -1326,16 +1498,30 @@
             const openSourceBtn = document.getElementById('openSourceBtn');
             const osClose = document.getElementById('osClose');
 
+            const tapokPage = document.getElementById('tapokPage');
+            const tapokImage = document.getElementById('tapokImage');
+            const tapokClose = document.getElementById('tapokClose');
+            const tapokLinkInHistory = document.getElementById('tapokLinkInHistory');
+
             const MAX_ANGLE = 20;
+
+            // ===== ФУНКЦИЯ ОТКРЫТИЯ TAPOK =====
+            function openTapok() {
+                tapokPage.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeTapok() {
+                tapokPage.classList.remove('open');
+                document.body.style.overflow = '';
+            }
 
             // ===== ИСТОРИЯ =====
             historyBtn.addEventListener('click', function() {
-                playClick();
                 historyOverlay.classList.add('open');
             });
 
             historyClose.addEventListener('click', function() {
-                playClick();
                 historyOverlay.classList.remove('open');
             });
 
@@ -1343,6 +1529,25 @@
                 if (e.target === historyOverlay) {
                     historyOverlay.classList.remove('open');
                 }
+            });
+
+            // ===== TAPOK =====
+            tapokImage.addEventListener('click', openTapok);
+
+            tapokClose.addEventListener('click', closeTapok);
+
+            tapokPage.addEventListener('click', function(e) {
+                if (e.target === tapokPage) {
+                    closeTapok();
+                }
+            });
+
+            tapokLinkInHistory.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Закрываем историю
+                historyOverlay.classList.remove('open');
+                // Открываем Tapok Story
+                setTimeout(openTapok, 300);
             });
 
             document.addEventListener('keydown', function(e) {
@@ -1358,18 +1563,19 @@
                         opensourcePage.classList.remove('open');
                         document.body.style.overflow = '';
                     }
+                    if (tapokPage.classList.contains('open')) {
+                        closeTapok();
+                    }
                 }
             });
 
             // ===== OPEN SOURCE СТРАНИЦА =====
             openSourceBtn.addEventListener('click', function() {
-                playClick();
                 opensourcePage.classList.add('open');
                 document.body.style.overflow = 'hidden';
             });
 
             osClose.addEventListener('click', function() {
-                playClick();
                 opensourcePage.classList.remove('open');
                 document.body.style.overflow = '';
             });
@@ -1383,13 +1589,11 @@
 
             // ===== T3 СТРАНИЦА =====
             t3Btn.addEventListener('click', function() {
-                playClick();
                 t3Page.classList.add('open');
                 document.body.style.overflow = 'hidden';
             });
 
             t3Close.addEventListener('click', function() {
-                playClick();
                 t3Page.classList.remove('open');
                 document.body.style.overflow = '';
             });
