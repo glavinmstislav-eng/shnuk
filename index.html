@@ -41,6 +41,7 @@
             overflow-x: hidden;
         }
 
+        /* ===== КУРСОР ===== */
         @media (hover: hover) and (pointer: fine) {
             * { cursor: none !important; }
             .custom-cursor {
@@ -66,6 +67,7 @@
             * { cursor: auto !important; }
         }
 
+        /* ===== ФОН ===== */
         .wallpaper-bg {
             position: fixed;
             top: 0;
@@ -87,6 +89,7 @@
             padding-bottom: 0;
         }
 
+        /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
         .hero {
             height: 100vh;
             display: flex;
@@ -163,6 +166,7 @@
             margin: 0 auto;
         }
 
+        /* ===== СТРАНИЦА TAPOK STORY ===== */
         .tapok-page {
             display: none;
             position: fixed;
@@ -180,6 +184,26 @@
             display: block;
         }
 
+        /* ФОН ВСЕЙ СТРАНИЦЫ — БЕЗ ГРАДИЕНТА И БЕЗ РАЗМЫТИЯ */
+        .tapok-page .tapok-page-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .tapok-page .tapok-page-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: none;
+            transform: none;
+        }
+
         .tapok-page .tapok-header {
             width: 100%;
             padding: 40px 20px 20px;
@@ -187,7 +211,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: #ffffff;
+            background: transparent;
         }
 
         .tapok-page .tapok-header h1 {
@@ -222,23 +246,248 @@
         }
 
         .tapok-page .tapok-content {
+            position: relative;
+            z-index: 1;
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px 60px;
             text-align: center;
         }
 
-        .tapok-page .tapok-content .tapok-message {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 1.8;
-            color: #222222;
-            letter-spacing: 0.5px;
-            padding: 40px 20px;
+        /* ===== ЛОГОТИП — УВЕЛИЧЕН ===== */
+        .tapok-page .tapok-logo {
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
 
-        /* ===== ОБЩИЙ ТЕКСТ ===== */
+        .tapok-page .tapok-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ОПИСАНИЕ — БЕЗ ПОДЛОЖКИ И БЕЗ ТЕНИ */
+        .tapok-page .tapok-description {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+            padding: 0 10px;
+            background: transparent;
+            text-shadow: none;
+        }
+
+        /* ===== КАРУСЕЛЬ ===== */
+        .tapok-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            background: #f5f5f5;
+            aspect-ratio: 16 / 9;
+        }
+
+        .tapok-carousel .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .tapok-carousel .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+        }
+
+        .tapok-carousel .carousel-slide video,
+        .tapok-carousel .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tapok-carousel .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: #cc0000;
+            border: none;
+            font-size: 48px;
+            padding: 0 12px;
+            cursor: pointer;
+            z-index: 5;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            transition: color 0.3s;
+            font-weight: 700;
+            line-height: 1;
+            text-shadow: none;
+        }
+
+        .tapok-carousel .carousel-btn:hover {
+            color: #990000;
+        }
+
+        .tapok-carousel .carousel-btn.prev {
+            left: 8px;
+        }
+
+        .tapok-carousel .carousel-btn.next {
+            right: 8px;
+        }
+
+        .tapok-carousel .carousel-dots {
+            display: none;
+        }
+
+        /* ===== ОДНА КНОПКА СКАЧИВАНИЯ ===== */
+        .tapok-download-wrapper {
+            margin: 30px 0 40px;
+        }
+
+        .tapok-download-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: #cc0000;
+            color: #ffffff;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border: none;
+            cursor: none !important;
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .tapok-download-btn:hover {
+            background: #990000;
+            transform: scale(1.03);
+        }
+
+        /* ===== ТЕКСТ "ыыы" — БЕЛЫЙ ===== */
+        .tapok-extra-text {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin-top: 8px;
+            text-shadow: none;
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ВЫБОРА ===== */
+        .download-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-modal.open {
+            display: flex;
+        }
+
+        .download-modal .modal-content {
+            background: #ffffff;
+            max-width: 500px;
+            width: 92%;
+            padding: 40px 30px 30px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .download-modal .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #000000;
+            cursor: none !important;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .download-modal .modal-close:hover {
+            transform: rotate(90deg);
+            color: #cc0000;
+        }
+
+        .download-modal .modal-title {
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            display: inline-block;
+            padding: 8px 24px;
+            background: #cc0000;
+            margin-bottom: 20px;
+        }
+
+        .download-modal .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .download-modal .modal-options .option-btn {
+            display: block;
+            padding: 12px 20px;
+            background: transparent;
+            color: #000000;
+            font-family: 'ST-SimpleSquare', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            cursor: none !important;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .download-modal .modal-options .option-btn:hover {
+            color: #cc0000;
+        }
+
+        /* ПОДПИСЬ РАЗРАБОТЧИКОВ — СКРЫТА */
+        .tapok-credits {
+            display: none;
+        }
+
+        .tapok-game-image {
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+
+        .tapok-game-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
         .text-content {
             font-family: 'ST-SimpleSquare', sans-serif;
             font-weight: 400;
@@ -509,7 +758,6 @@
             color: #990000;
         }
 
-        /* ===== РАЗДЕЛ: ДЛЯ РАЗРАБОТЧИКОВ ===== */
         .dev-section {
             max-width: 900px;
             margin: 30px auto;
@@ -1129,7 +1377,15 @@
             .law-section .text-content { font-size: 18px; }
             .tapok-section { margin: 20px 16px; }
             .tapok-page .tapok-header h1 { font-size: 28px; padding: 8px 24px; }
-            .tapok-page .tapok-content .tapok-message { font-size: 20px; padding: 30px 15px; }
+            .tapok-page .tapok-description { font-size: 18px; }
+            .tapok-page .tapok-logo { max-width: 400px; }
+            .tapok-carousel { aspect-ratio: 4 / 3; }
+            .tapok-carousel .carousel-btn { font-size: 36px; padding: 0 8px; }
+            .tapok-download-btn { padding: 12px 32px; font-size: 15px; letter-spacing: 3px; }
+            .tapok-extra-text { font-size: 16px; }
+            .download-modal .modal-content { padding: 30px 20px 20px; }
+            .download-modal .modal-title { font-size: 20px; padding: 6px 18px; }
+            .download-modal .modal-options .option-btn { padding: 10px 16px; font-size: 13px; }
             .t3-page .t3-header h1 { font-size: 28px; padding: 8px 24px; }
             .t3-page .t3-content .t3-block h2 { font-size: 24px; padding: 6px 20px; }
             .t3-page .t3-content .t3-block p { font-size: 15px; }
@@ -1174,8 +1430,16 @@
             .law-section .text-content { font-size: 16px; }
             .tapok-section { margin: 14px 10px; }
             .tapok-page .tapok-header h1 { font-size: 22px; padding: 6px 16px; }
-            .tapok-page .tapok-content .tapok-message { font-size: 16px; padding: 20px 10px; }
+            .tapok-page .tapok-description { font-size: 15px; }
+            .tapok-page .tapok-logo { max-width: 300px; }
             .tapok-page .tapok-close { font-size: 30px; top: 15px; right: 20px; }
+            .tapok-carousel { aspect-ratio: 1 / 1; }
+            .tapok-carousel .carousel-btn { font-size: 28px; padding: 0 6px; }
+            .tapok-download-btn { padding: 10px 20px; font-size: 13px; letter-spacing: 2px; }
+            .tapok-extra-text { font-size: 14px; }
+            .download-modal .modal-content { padding: 24px 16px 16px; }
+            .download-modal .modal-title { font-size: 17px; padding: 5px 14px; }
+            .download-modal .modal-options .option-btn { padding: 8px 12px; font-size: 12px; letter-spacing: 1px; }
             .t3-page .t3-header h1 { font-size: 22px; padding: 6px 16px; }
             .t3-page .t3-content .t3-block h2 { font-size: 20px; padding: 4px 14px; }
             .t3-page .t3-content .t3-block p { font-size: 13px; }
@@ -1205,12 +1469,14 @@
             <div class="subtitle">Добро пожаловать!</div>
         </section>
 
+        <!-- ===== БЛОК TAPOK ===== -->
         <section class="tapok-section" id="tapokSection">
             <div class="tapok-image" id="tapokImage">
                 <img src="tapok.png" alt="Tapok Story">
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ 1: ХАРАКТЕРИСТИКИ ===== -->
         <section class="specs-section" id="specsSection">
             <div class="section-title"><span>ХАРАКТЕРИСТИКИ</span></div>
             <div class="models-container">
@@ -1220,6 +1486,7 @@
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ: SHNUK X AXOGEN ===== -->
         <section class="axogen-section" id="axogenSection">
             <div class="section-title"><span>SHNUK X AXOGEN</span></div>
             <div class="text-content">
@@ -1249,16 +1516,17 @@
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ 2: ПОСЛАНИЕ ===== -->
         <section class="message-section" id="messageSection">
-            <div class="section-title"><span>ЭЛЕКТРОННАЯ ВЕРСИЯ ПОСЛАНИЯ SHNUK</span></div>
+            <div class="section-title"><span>О SHNUK OS</span></div>
             <div class="text-content">
-                <p>Компания шнюк старается уделять огромное внимание качеству сборки и внешнему виду смартфона, но несмотря на это мы не всегда можем сразу выявлять брак в наших устройствах. Если с вашим телефоном шнюк что-то случилось, вы всегда можете обратиться к нам, мы вернём вам деньги. Устройство не причинит вам вреда, если соблюдать меры безопасности.</p>
-                <p>Компании Шнюк уже больше трёх лет. И всё это время мы ни на день не останавливались в развитии — всегда шли вперёд. Но наш путь — это не только наша заслуга. Это ваша заслуга. Если бы не вы, наши покупатели, те, кто выбирал и выбирает устройства Шнюк, нас бы просто не было. Поэтому, когда вы держите в руках телефон Шнюк, помните: именно благодаря вам уже завтра кто-то другой тоже сможет стать обладателем нового Шнюка.</p>
-                <p>Покупая Шнюк, вы становитесь не просто пользователем — вы становитесь частью нас. Мы всегда открыты к вашим идеям: возможно, именно ваше предложение ляжет в основу будущих моделей.</p>
+                <p>Shnuk OS является браузерной операционной системой, все пользовательские данные хранятся исключительно в памяти браузера и не собираются.</p>
+                <p>Срок действия QR кода на каждом устройстве ограничен, это чисто техническое ограничение, так как огромное количество файлов-маршрутизаторов для каждой модели Shnuk занимали бы слишком много памяти. Мы не можем точно сказать когда QR код на вашем устройстве перестанет работать, но постараемся чтобы в течении следующих двух лет (на момент написания текста 13.09.26) все QR коды будут оставаться рабочими.</p>
                 <p><span class="highlight">С уважением, GLavin, Stepaska, Чапик, Роман Мужиков и Илья Бойков.</span></p>
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ 3: PROJECTS ===== -->
         <section class="projects-section" id="projectsSection">
             <div class="projects-header">
                 <div class="overlay-title">SHNUK PROJECTS</div>
@@ -1270,10 +1538,11 @@
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ 4: О ПРОЕКТЕ ===== -->
         <section class="about-section" id="aboutSection">
             <div class="section-title"><span>О ПРОЕКТЕ</span></div>
             <div class="text-content">
-                <p>Компания Shnuk (Шнюк) основана в 2023 году <span class="highlight">Романом Мужиковым</span>. Компания производит бумажные телефоны. Они являются бумажными моделями и не имеют функционала реальных смартфонов. Название устройств Shnuk в официальных материалах "телефонами" и "смартфонами" являются шуточными и не имеют отношения к реальности.</p>
+                <p>Компания* Shnuk основана в 2023 году <span class="highlight">Романом Мужиковым</span>. Компания* производит бумажные телефоны**. Они являются бумажными моделями и не имеют функционала реальных смартфонов.</p>
                 <p>Подробнее о проекте вы можете узнать в нашей <a href="https://glavinmstislav-eng.github.io/shnuk-wiki/" target="_blank">Wiki</a>.</p>
                 <p>В проекте участвуют:</p>
             </div>
@@ -1305,10 +1574,11 @@
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ: ДЛЯ РАЗРАБОТЧИКОВ ===== -->
         <section class="dev-section" id="devSection">
             <div class="section-title"><span>ДЛЯ РАЗРАБОТЧИКОВ</span></div>
             <div class="text-content">
-                <p>Здесь собраны материалы для разработчиков и дизайнеров, работающих с продуктами Shnuk.</p>
+                <p>Здесь собраны материалы для разработчиков и дизайнеров, работающих с продуктами*** Shnuk.</p>
             </div>
             <div class="dev-buttons">
                 <button class="dev-btn" id="openSourceBtn">Open Source</button>
@@ -1316,10 +1586,14 @@
             </div>
         </section>
 
+        <!-- ===== РАЗДЕЛ: ЗАКОН ===== -->
         <section class="law-section" id="lawSection">
             <div class="section-title"><span>ЗАКОН</span></div>
             <div class="text-content">
-                <p>Компания Shnuk НЕ занимается коммерческой деятельностью, мы продаем устройства в малых партиях, без цели заработка. Мы всегда говорим покупателям всё об устройствах. Если же покупателю что-то не понравится в устройстве, то он всегда может вернуть его нам и получить обратно свои деньги, с условием, что он никак не ухудшал состояние устройства.</p>
+                <p>Компания* Shnuk НЕ занимается коммерческой деятельностью, мы продаем устройства*** в малых партиях, без цели заработка. Мы всегда говорим покупателям всё об устройствах***. Если же покупателю что-то не понравится в устройстве***, то он всегда может вернуть его нам и получить обратно свои деньги, с условием, что он никак не ухудшал состояние устройства***.</p>
+                <p>* - Shnuk называется компанией исключительно в шуточном ключе. Проект имеет исключительно развлекательный и образовательный характер. Мы продаем устройства в крайне низких партиях, по низкой цене, чтобы окупить свой труд и расходы.</p>
+                <p>** - Устройства Shnuk не являются настоящими телефонами, они не могут звонить. Любое упоминание устройств Shnuk как "телефонов" или "смартфонов" является шуточным.</p>
+                <p>*** - Устройством подразумивается бумажная модель, не имеющая реальной функциональности. Любое упоминание продуктов Shnuk как устройств, является шуточным. (Так же см. пункты * и **</p>
             </div>
         </section>
 
@@ -1332,12 +1606,13 @@
         </div>
     </footer>
 
+    <!-- ===== ОКНО ПОЛНОЙ ИСТОРИИ ===== -->
     <div class="history-overlay" id="historyOverlay">
         <div class="history-popup">
             <button class="close-history" id="historyClose">✕</button>
             <div class="history-title">ПОЛНАЯ ИСТОРИЯ</div>
             <div class="history-text">
-                <p>Компания Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства Shnuk имели низкую цену, но были значительно менее качественными, чем современные модели.
+                <p>Компания* Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства*** Shnuk имели низкую цену, но были значительно менее качественными, чем современные модели.
 Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Главин Мстислав совместно с Ильёй Степановым начали выпуск
 сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась <a class="tapok-link" id="tapokLinkInHistory">игрой по тапкам</a>
 по этой вселенной, которая была выпущена в сентябре 2026 года. В апреле 2026 года стартовали первые продажи за год.</p>
@@ -1345,19 +1620,83 @@
         </div>
     </div>
 
+    <!-- ===== СТРАНИЦА TAPOK STORY ===== -->
     <div class="tapok-page" id="tapokPage">
+
+        <!-- ФОН ВСЕЙ СТРАНИЦЫ — БЕЗ РАЗМЫТИЯ И ГРАДИЕНТА -->
+        <div class="tapok-page-bg">
+            <img src="wallpapergame.png" alt="game wallpaper">
+        </div>
+
         <div class="tapok-header">
             <h1>TAPOK STORY</h1>
         </div>
         <button class="tapok-close" id="tapokClose">✕</button>
 
         <div class="tapok-content">
-            <div class="tapok-message">
-                Игра Tapok Story еще не вышла, пока что данный раздел не рабочий
+
+            <!-- Логотип — УВЕЛИЧЕН -->
+            <div class="tapok-logo">
+                <img src="Logo.png" alt="Tapok Story Logo">
             </div>
+
+            <!-- Описание — БЕЗ ПОДЛОЖКИ И БЕЗ ТЕНИ -->
+            <div class="tapok-description">
+                Погрузитесь в захватывающий мир Tapok Story, созданный по мотивам сериала The Tapok Cross!
+            </div>
+
+            <!-- КАРУСЕЛЬ -->
+            <div class="tapok-carousel" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <video src="video.mp4" muted loop playsinline></video>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img1.png" alt="screenshot 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img2.png" alt="screenshot 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img3.png" alt="screenshot 3">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" id="carouselPrev">‹</button>
+                <button class="carousel-btn next" id="carouselNext">›</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+
+            <!-- ОДНА КНОПКА СКАЧИВАНИЯ -->
+            <div class="tapok-download-wrapper">
+                <button class="tapok-download-btn" id="downloadBtn">Скачать</button>
+                <!-- ТЕКСТ "ыыы" — БЕЛЫЙ -->
+                <div class="tapok-extra-text">ыыы</div>
+            </div>
+
+            <!-- МОДАЛЬНОЕ ОКНО ВЫБОРА -->
+            <div class="download-modal" id="downloadModal">
+                <div class="modal-content">
+                    <button class="modal-close" id="modalClose">✕</button>
+                    <div class="modal-title">ВЫБЕРИТЕ ВАРИАНТ</div>
+                    <div class="modal-options">
+                        <a href="#" class="option-btn">Скачать на Android</a>
+                        <a href="#" class="option-btn">Скачать Demo</a>
+                        <a href="#" class="option-btn">Скачать с Google Play</a>
+                        <a href="#" class="option-btn">Скачать с FDroid</a>
+                        <a href="#" class="option-btn">Скачать с GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ИЗОБРАЖЕНИЕ game.png ВНИЗУ -->
+            <div class="tapok-game-image">
+                <img src="game.png" alt="Game">
+            </div>
+
         </div>
     </div>
 
+    <!-- ===== СТРАНИЦА OPEN SOURCE ===== -->
     <div class="opensource-page" id="opensourcePage">
         <div class="os-header">
             <h1>ОБ OPEN SOURCE</h1>
@@ -1368,12 +1707,13 @@
             <div class="os-image">
                 <img src="opensourse.png" alt="Open Source">
             </div>
-            <p>Компания Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличаться по размеру и по качеству.</p>
+            <p>*Компания Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличаться по размеру и по качеству.</p>
             <p>Если вы будете отдавать кому-то такую самодельную модель, то никогда не называйте её оригинальной.</p>
-            <p><a href="https://github.com/glavinmstislav-eng/shnuk-opensourse/releases/tag/shnuk-events" target="_blank">Исходники Shnuk</a></p>
+            <p><a href="https://github.com/glavinmstislav-eng/shnuk-opensourse/releases" target="_blank">Исходники Shnuk</a></p>
         </div>
     </div>
 
+    <!-- ===== СТРАНИЦА T3 (О ДИЗАЙНЕ SHNUK) ===== -->
     <div class="t3-page" id="t3Page">
         <div class="t3-header">
             <h1>О ДИЗАЙНЕ SHNUK</h1>
@@ -1381,12 +1721,14 @@
         <button class="t3-close" id="t3Close">✕</button>
 
         <div class="t3-content">
+            <!-- Введение -->
             <div class="t3-block" id="t3-intro">
                 <h2>Введение</h2>
                 <p>Начнем с основ фирменного стиля Shnuk. В его основе лежит индустриальный эстетический подход, отличительными чертами которого выступают унифицированная цветовая палитра и строгая геометрия без лишних деталей.</p>
                 <p>Если вы планируете предложить нам концепцию внешнего вида какого-либо устройства, настоятельно рекомендуем опираться на данную статью. Это поможет вашему проекту успешно пройти внутреннюю проверку и значительно повысит его шансы на воплощение в реальную модель. Материал будет одинаково полезен как для специалистов по компьютерной графике, стремящихся точно воспроизвести стиль в цифровых сценах, так и для инженеров, занимающихся созданием физических прототипов в нашей дизайн-философии.</p>
             </div>
 
+            <!-- Окна и цвета -->
             <div class="t3-block" id="t3-windows">
                 <h2>Окна и цвета</h2>
                 <p>Ключевое внимание стоит уделить цветам - именно они придают стилю Shnuk ту самую узнаваемую индивидуальность.</p>
@@ -1398,6 +1740,7 @@
                 <p>Теперь перейдем к оконным элементам. В дизайне Shnuk предусмотрено два типа окон: фоновые подложки для разделов (выступающие в роли базовой поверхности) и стандартные окна, чаще всего всплывающие. Все они выполняются в белом цвете и не имеют закруглений по углам. Для отделения окон от основного фона допускается применение легких, едва заметных теней, обеспечивающих необходимую глубину композиции.</p>
             </div>
 
+            <!-- Текст -->
             <div class="t3-block" id="t3-text">
                 <h2>Текст</h2>
                 <div class="t3-image">
@@ -1407,6 +1750,7 @@
                 <p>Главные заголовочные блоки (например, название всей страницы) могут иметь дополнительную интерактивность: на ПК они способны вращаться в трехмерном пространстве, отслеживая движение курсора, а на мобильных устройствах - менять угол наклона за счет данных гироскопа. Аналогичный принцип оформления применяется и к кнопкам: они также оснащаются красной подложкой, а их текстовое содержимое неизменно выполняется белым цветом.</p>
             </div>
 
+            <!-- Другие элементы -->
             <div class="t3-block" id="t3-elements">
                 <h2>Другие элементы</h2>
                 <div class="t3-image">
@@ -1418,6 +1762,7 @@
         </div>
     </div>
 
+    <!-- ===== СКРИПТ TIKTOK ===== -->
     <script async src="https://www.tiktok.com/embed.js"></script>
 
     <script>
@@ -1425,30 +1770,30 @@
             const MODEL_DATA = [
                 {
                     key: "deviceeclipse.png",
-                    name: "Shnuk 2 Eclipse",
+                    name: "Shnuk 3 Eclipse",
                     materials: [
-                        "укрепленная двойная бумага. За счет более дорогой и прочной технологии корпуса, а также составу клея, устойчивость устройства к смятиям выросла в 4 раза. На отдельных участках корпуса прочность возрастает до 10 раз",
-                        "галлаграфические вставки"
+                        "двойная бумага",
+                        "глянцевые вставки"
                     ],
-                    functions: "Галлаграфическая подложка блока камер переливается на свету",
-                    displayName: "SHNUK 2 ECLIPSE"
+                    functions: "Shnuk OS 1, 3 месяца обновлений системы, с 15.09.26 по 15.12.26",
+                    displayName: "SHNUK 3 ECLIPSE"
                 },
                 {
                     key: "devicemineral.png",
-                    name: "Shnuk 2 Mineral",
-                    materials: ["бумага", "галлаграфические вставки"],
-                    functions: "Галлаграфическая подложка блока камер переливается на свету",
-                    displayName: "SHNUK 2 MINERAL"
+                    name: "Shnuk 3 Mineral",
+                    materials: ["бумага", "глянцевые вставки"],
+                    functions: "Shnuk OS 1, 2 месяца обновлений системы, с 15.09.26 по 15.11.26",
+                    displayName: "SHNUK 3 MINERAL"
                 },
                 {
                     key: "devicepaper.png",
-                    name: "Shnuk 2 Paper",
+                    name: "Shnuk 3 Paper",
                     materials: [
-                        "бумага. За счет измененной конструкции устройства, прочность к смятию в верхней части корпуса возрасла в 2 раза",
-                        "гладкие вставки"
+                        "бумага",
+                        "глянцевые вставки"
                     ],
-                    functions: "Глянцевые вствки блестят на свету",
-                    displayName: "SHNUK 2 PAPER"
+                    functions: "Shnuk OS 1, 1 месяц обновлений системы, с 15.09.26 по 15.10.26",
+                    displayName: "SHNUK 3 PAPER"
                 }
             ];
 
@@ -1475,17 +1820,87 @@
             const tapokClose = document.getElementById('tapokClose');
             const tapokLinkInHistory = document.getElementById('tapokLinkInHistory');
 
+            // ===== МОДАЛЬНОЕ ОКНО =====
+            const downloadBtn = document.getElementById('downloadBtn');
+            const downloadModal = document.getElementById('downloadModal');
+            const modalClose = document.getElementById('modalClose');
+
+            function openModal() {
+                downloadModal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                downloadModal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            downloadBtn.addEventListener('click', openModal);
+            modalClose.addEventListener('click', closeModal);
+            downloadModal.addEventListener('click', function(e) {
+                if (e.target === downloadModal) {
+                    closeModal();
+                }
+            });
+
+            // Закрытие модального окна при клике на любой вариант
+            document.querySelectorAll('.modal-options .option-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    closeModal();
+                });
+            });
+
             const MAX_ANGLE = 20;
+
+            // ===== КАРУСЕЛЬ (без автопрокрутки) =====
+            const track = document.getElementById('carouselTrack');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            let currentIndex = 0;
+
+            function goToSlide(index) {
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                const video = slides[0].querySelector('video');
+                if (video) {
+                    if (currentIndex === 0) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                }
+            }
+
+            function nextSlide() {
+                goToSlide((currentIndex + 1) % slides.length);
+            }
+
+            function prevSlide() {
+                goToSlide((currentIndex - 1 + slides.length) % slides.length);
+            }
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
 
             // ===== ФУНКЦИЯ ОТКРЫТИЯ TAPOK =====
             function openTapok() {
                 tapokPage.classList.add('open');
                 document.body.style.overflow = 'hidden';
+                const video = slides[0].querySelector('video');
+                if (video && currentIndex === 0) {
+                    setTimeout(() => video.play().catch(() => {}), 300);
+                }
             }
 
             function closeTapok() {
                 tapokPage.classList.remove('open');
                 document.body.style.overflow = '';
+                const video = slides[0].querySelector('video');
+                if (video) video.pause();
+                if (downloadModal.classList.contains('open')) {
+                    closeModal();
+                }
             }
 
             // ===== ИСТОРИЯ =====
@@ -1516,9 +1931,7 @@
 
             tapokLinkInHistory.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Закрываем историю
                 historyOverlay.classList.remove('open');
-                // Открываем Tapok Story
                 setTimeout(openTapok, 300);
             });
 
@@ -1538,10 +1951,13 @@
                     if (tapokPage.classList.contains('open')) {
                         closeTapok();
                     }
+                    if (downloadModal.classList.contains('open')) {
+                        closeModal();
+                    }
                 }
             });
 
-            // ===== OPEN SOURCE СТРАНИЦА =====
+            // ===== OPEN SOURCE =====
             openSourceBtn.addEventListener('click', function() {
                 opensourcePage.classList.add('open');
                 document.body.style.overflow = 'hidden';
@@ -1559,7 +1975,7 @@
                 }
             });
 
-            // ===== T3 СТРАНИЦА =====
+            // ===== T3 =====
             t3Btn.addEventListener('click', function() {
                 t3Page.classList.add('open');
                 document.body.style.overflow = 'hidden';
@@ -1577,7 +1993,7 @@
                 }
             });
 
-            // ===== 3D ВРАЩЕНИЕ ГЛАВНОГО ЗАГОЛОВКА =====
+            // ===== 3D ВРАЩЕНИЕ =====
             const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768;
 
             function getCenter(element) {
