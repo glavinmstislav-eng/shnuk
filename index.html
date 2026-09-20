@@ -140,353 +140,6 @@
             margin-top: 10px;
         }
 
-        /* ===== БЛОК TAPOK ===== */
-        .tapok-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .tapok-section .tapok-image {
-            cursor: pointer;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .tapok-section .tapok-image:hover {
-            transform: scale(1.02);
-        }
-
-        .tapok-section .tapok-image img {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* ===== СТРАНИЦА TAPOK STORY ===== */
-        .tapok-page {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            background: #ffffff;
-            overflow-y: auto;
-            padding: 0;
-        }
-
-        .tapok-page.open {
-            display: block;
-        }
-
-        /* ФОН ВСЕЙ СТРАНИЦЫ — БЕЗ ГРАДИЕНТА И БЕЗ РАЗМЫТИЯ */
-        .tapok-page .tapok-page-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .tapok-page .tapok-page-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: none;
-            transform: none;
-        }
-
-        .tapok-page .tapok-header {
-            width: 100%;
-            padding: 40px 20px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: transparent;
-        }
-
-        .tapok-page .tapok-header h1 {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 700;
-            font-size: 36px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 10px 40px;
-            background: #cc0000;
-        }
-
-        .tapok-page .tapok-close {
-            position: fixed;
-            top: 20px;
-            right: 30px;
-            background: none;
-            border: none;
-            font-size: 40px;
-            color: #000000;
-            cursor: none !important;
-            z-index: 20;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            transition: transform 0.3s ease;
-        }
-
-        .tapok-page .tapok-close:hover {
-            transform: rotate(90deg);
-            color: #cc0000;
-        }
-
-        .tapok-page .tapok-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-            text-align: center;
-        }
-
-        /* ===== ЛОГОТИП — УВЕЛИЧЕН ===== */
-        .tapok-page .tapok-logo {
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        .tapok-page .tapok-logo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ОПИСАНИЕ — БЕЗ ПОДЛОЖКИ И БЕЗ ТЕНИ */
-        .tapok-page .tapok-description {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 1.8;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-            margin-bottom: 40px;
-            padding: 0 10px;
-            background: transparent;
-            text-shadow: none;
-        }
-
-        /* ===== КАРУСЕЛЬ ===== */
-        .tapok-carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            overflow: hidden;
-            background: #f5f5f5;
-            aspect-ratio: 16 / 9;
-        }
-
-        .tapok-carousel .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            height: 100%;
-        }
-
-        .tapok-carousel .carousel-slide {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #eee;
-        }
-
-        .tapok-carousel .carousel-slide video,
-        .tapok-carousel .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .tapok-carousel .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            color: #cc0000;
-            border: none;
-            font-size: 48px;
-            padding: 0 12px;
-            cursor: pointer;
-            z-index: 5;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            transition: color 0.3s;
-            font-weight: 700;
-            line-height: 1;
-            text-shadow: none;
-        }
-
-        .tapok-carousel .carousel-btn:hover {
-            color: #990000;
-        }
-
-        .tapok-carousel .carousel-btn.prev {
-            left: 8px;
-        }
-
-        .tapok-carousel .carousel-btn.next {
-            right: 8px;
-        }
-
-        .tapok-carousel .carousel-dots {
-            display: none;
-        }
-
-        /* ===== ОДНА КНОПКА СКАЧИВАНИЯ ===== */
-        .tapok-download-wrapper {
-            margin: 30px 0 40px;
-        }
-
-        .tapok-download-btn {
-            display: inline-block;
-            padding: 16px 48px;
-            background: #cc0000;
-            color: #ffffff;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 18px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            border: none;
-            cursor: none !important;
-            transition: background 0.3s ease, transform 0.3s ease;
-            text-decoration: none;
-        }
-
-        .tapok-download-btn:hover {
-            background: #990000;
-            transform: scale(1.03);
-        }
-
-        /* ===== ТЕКСТ "ыыы" — БЕЛЫЙ ===== */
-        .tapok-extra-text {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 18px;
-            color: #ffffff;
-            letter-spacing: 2px;
-            margin-top: 8px;
-            text-shadow: none;
-        }
-
-        /* ===== МОДАЛЬНОЕ ОКНО ВЫБОРА ===== */
-        .download-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2000;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .download-modal.open {
-            display: flex;
-        }
-
-        .download-modal .modal-content {
-            background: #ffffff;
-            max-width: 500px;
-            width: 92%;
-            padding: 40px 30px 30px;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .download-modal .modal-close {
-            position: absolute;
-            top: 12px;
-            right: 18px;
-            background: none;
-            border: none;
-            font-size: 32px;
-            color: #000000;
-            cursor: none !important;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            transition: transform 0.3s ease;
-        }
-
-        .download-modal .modal-close:hover {
-            transform: rotate(90deg);
-            color: #cc0000;
-        }
-
-        .download-modal .modal-title {
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 8px 24px;
-            background: #cc0000;
-            margin-bottom: 20px;
-        }
-
-        .download-modal .modal-options {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-top: 10px;
-        }
-
-        .download-modal .modal-options .option-btn {
-            display: block;
-            padding: 12px 20px;
-            background: transparent;
-            color: #000000;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            font-weight: 400;
-            font-size: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: none;
-            cursor: none !important;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .download-modal .modal-options .option-btn:hover {
-            color: #cc0000;
-        }
-
-        /* ПОДПИСЬ РАЗРАБОТЧИКОВ — СКРЫТА */
-        .tapok-credits {
-            display: none;
-        }
-
-        .tapok-game-image {
-            max-width: 300px;
-            margin: 0 auto 20px;
-        }
-
-        .tapok-game-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
         .text-content {
             font-family: 'ST-SimpleSquare', sans-serif;
@@ -538,11 +191,6 @@
             z-index: 1;
             border-radius: 0;
             transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section.highlight {
-            background: rgba(204, 0, 0, 0.15);
-            box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
         }
 
         .section-title {
@@ -680,24 +328,6 @@
 
         .model-block .model-details .value {
             color: #000000;
-        }
-
-        .model-block .model-details .value .tag {
-            display: inline-block;
-            padding: 4px 16px;
-            border: 1px solid #000000;
-            font-size: 16px;
-            font-weight: 400;
-            background: transparent;
-            color: #000000;
-            font-family: 'ST-SimpleSquare', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 3px 6px 3px 0;
-        }
-
-        .model-block .model-details .value .tag:last-child {
-            margin-right: 0;
         }
 
         .axogen-section {
@@ -1056,11 +686,6 @@
             text-align: center;
         }
 
-        .message-section.highlight {
-            background: rgba(204, 0, 0, 0.15);
-            box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
-        }
-
         .projects-section {
             max-width: 900px;
             margin: 30px auto;
@@ -1074,11 +699,6 @@
             overflow: hidden;
             border-radius: 0;
             transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .projects-section.highlight {
-            background: rgba(204, 0, 0, 0.15);
-            box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
         }
 
         .projects-section .projects-header {
@@ -1132,11 +752,6 @@
 
         .about-section .section-title {
             text-align: center;
-        }
-
-        .about-section.highlight {
-            background: rgba(204, 0, 0, 0.15);
-            box-shadow: 0 0 30px rgba(204, 0, 0, 0.2);
         }
 
         .team-grid {
@@ -1275,17 +890,6 @@
             color: #222222;
         }
 
-        .history-popup .history-text .tapok-link {
-            color: #cc0000;
-            text-decoration: underline;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .history-popup .history-text .tapok-link:hover {
-            color: #990000;
-        }
-
         .footer {
             width: 100%;
             padding: 30px 20px 20px;
@@ -1352,7 +956,6 @@
             .model-block .model-icon { width: 140px; height: 140px; }
             .model-block .model-name { font-size: 18px; }
             .model-block .model-details { font-size: 14px; }
-            .model-block .model-details .value .tag { font-size: 13px; padding: 3px 12px; }
             .message-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .projects-section { margin: 20px 16px; max-width: 100%; }
             .projects-section .projects-header { height: 150px; }
@@ -1375,17 +978,6 @@
             .dev-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .law-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
             .law-section .text-content { font-size: 18px; }
-            .tapok-section { margin: 20px 16px; }
-            .tapok-page .tapok-header h1 { font-size: 28px; padding: 8px 24px; }
-            .tapok-page .tapok-description { font-size: 18px; }
-            .tapok-page .tapok-logo { max-width: 400px; }
-            .tapok-carousel { aspect-ratio: 4 / 3; }
-            .tapok-carousel .carousel-btn { font-size: 36px; padding: 0 8px; }
-            .tapok-download-btn { padding: 12px 32px; font-size: 15px; letter-spacing: 3px; }
-            .tapok-extra-text { font-size: 16px; }
-            .download-modal .modal-content { padding: 30px 20px 20px; }
-            .download-modal .modal-title { font-size: 20px; padding: 6px 18px; }
-            .download-modal .modal-options .option-btn { padding: 10px 16px; font-size: 13px; }
             .t3-page .t3-header h1 { font-size: 28px; padding: 8px 24px; }
             .t3-page .t3-content .t3-block h2 { font-size: 24px; padding: 6px 20px; }
             .t3-page .t3-content .t3-block p { font-size: 15px; }
@@ -1404,7 +996,6 @@
             .model-block .model-icon { width: 100px; height: 100px; }
             .model-block .model-name { font-size: 15px; }
             .model-block .model-details { font-size: 13px; }
-            .model-block .model-details .value .tag { font-size: 11px; padding: 2px 10px; margin: 2px 4px 2px 0; }
             .message-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .projects-section { margin: 14px 10px; max-width: 100%; }
             .projects-section .projects-header { height: 110px; }
@@ -1428,18 +1019,6 @@
             .dev-section .dev-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
             .law-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
             .law-section .text-content { font-size: 16px; }
-            .tapok-section { margin: 14px 10px; }
-            .tapok-page .tapok-header h1 { font-size: 22px; padding: 6px 16px; }
-            .tapok-page .tapok-description { font-size: 15px; }
-            .tapok-page .tapok-logo { max-width: 300px; }
-            .tapok-page .tapok-close { font-size: 30px; top: 15px; right: 20px; }
-            .tapok-carousel { aspect-ratio: 1 / 1; }
-            .tapok-carousel .carousel-btn { font-size: 28px; padding: 0 6px; }
-            .tapok-download-btn { padding: 10px 20px; font-size: 13px; letter-spacing: 2px; }
-            .tapok-extra-text { font-size: 14px; }
-            .download-modal .modal-content { padding: 24px 16px 16px; }
-            .download-modal .modal-title { font-size: 17px; padding: 5px 14px; }
-            .download-modal .modal-options .option-btn { padding: 8px 12px; font-size: 12px; letter-spacing: 1px; }
             .t3-page .t3-header h1 { font-size: 22px; padding: 6px 16px; }
             .t3-page .t3-content .t3-block h2 { font-size: 20px; padding: 4px 14px; }
             .t3-page .t3-content .t3-block p { font-size: 13px; }
@@ -1467,13 +1046,6 @@
                 </div>
             </div>
             <div class="subtitle">Добро пожаловать!</div>
-        </section>
-
-        <!-- ===== БЛОК TAPOK ===== -->
-        <section class="tapok-section" id="tapokSection">
-            <div class="tapok-image" id="tapokImage">
-                <img src="tapok.png" alt="Tapok Story">
-            </div>
         </section>
 
         <!-- ===== РАЗДЕЛ 1: ХАРАКТЕРИСТИКИ ===== -->
@@ -1614,85 +1186,9 @@
             <div class="history-text">
                 <p>Компания* Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства*** Shnuk имели низкую цену, но были значительно менее качественными, чем современные модели.
 Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Главин Мстислав совместно с Ильёй Степановым начали выпуск
-сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась <a class="tapok-link" id="tapokLinkInHistory">игрой по тапкам</a>
+сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась игрой по тапкам
 по этой вселенной, которая была выпущена в сентябре 2026 года. В апреле 2026 года стартовали первые продажи за год.</p>
             </div>
-        </div>
-    </div>
-
-    <!-- ===== СТРАНИЦА TAPOK STORY ===== -->
-    <div class="tapok-page" id="tapokPage">
-
-        <!-- ФОН ВСЕЙ СТРАНИЦЫ — БЕЗ РАЗМЫТИЯ И ГРАДИЕНТА -->
-        <div class="tapok-page-bg">
-            <img src="wallpapergame.png" alt="game wallpaper">
-        </div>
-
-        <div class="tapok-header">
-            <h1>TAPOK STORY</h1>
-        </div>
-        <button class="tapok-close" id="tapokClose">✕</button>
-
-        <div class="tapok-content">
-
-            <!-- Логотип — УВЕЛИЧЕН -->
-            <div class="tapok-logo">
-                <img src="Logo.png" alt="Tapok Story Logo">
-            </div>
-
-            <!-- Описание — БЕЗ ПОДЛОЖКИ И БЕЗ ТЕНИ -->
-            <div class="tapok-description">
-                Погрузитесь в захватывающий мир Tapok Story, созданный по мотивам сериала The Tapok Cross!
-            </div>
-
-            <!-- КАРУСЕЛЬ -->
-            <div class="tapok-carousel" id="carousel">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-slide">
-                        <video src="video.mp4" muted loop playsinline></video>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="img1.png" alt="screenshot 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="img2.png" alt="screenshot 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="img3.png" alt="screenshot 3">
-                    </div>
-                </div>
-                <button class="carousel-btn prev" id="carouselPrev">‹</button>
-                <button class="carousel-btn next" id="carouselNext">›</button>
-                <div class="carousel-dots" id="carouselDots"></div>
-            </div>
-
-            <!-- ОДНА КНОПКА СКАЧИВАНИЯ -->
-            <div class="tapok-download-wrapper">
-                <button class="tapok-download-btn" id="downloadBtn">Скачать</button>
-                <!-- ТЕКСТ "ыыы" — БЕЛЫЙ -->
-                <div class="tapok-extra-text">ыыы</div>
-            </div>
-
-            <!-- МОДАЛЬНОЕ ОКНО ВЫБОРА -->
-            <div class="download-modal" id="downloadModal">
-                <div class="modal-content">
-                    <button class="modal-close" id="modalClose">✕</button>
-                    <div class="modal-title">ВЫБЕРИТЕ ВАРИАНТ</div>
-                    <div class="modal-options">
-                        <a href="#" class="option-btn">Скачать на Android</a>
-                        <a href="#" class="option-btn">Скачать Demo</a>
-                        <a href="#" class="option-btn">Скачать с Google Play</a>
-                        <a href="#" class="option-btn">Скачать с FDroid</a>
-                        <a href="#" class="option-btn">Скачать с GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ИЗОБРАЖЕНИЕ game.png ВНИЗУ -->
-            <div class="tapok-game-image">
-                <img src="game.png" alt="Game">
-            </div>
-
         </div>
     </div>
 
@@ -1769,31 +1265,22 @@
         (function() {
             const MODEL_DATA = [
                 {
-                    key: "deviceeclipse.png",
-                    name: "Shnuk 3 Eclipse",
+                    key: "shnuk2.png",
+                    name: "Shnuk 2",
                     materials: [
-                        "двойная бумага",
-                        "глянцевые вставки"
+                        "бумага"
                     ],
-                    functions: "Shnuk OS 1, 3 месяца обновлений системы, с 15.09.26 по 15.12.26",
-                    displayName: "SHNUK 3 ECLIPSE"
+                    functions: "Shnuk OS, 2 месяца обновлений системы, с 2026-09-20, по 2026-11-20,
+                    displayName: "SHNUK 2"
                 },
                 {
-                    key: "devicemineral.png",
-                    name: "Shnuk 3 Mineral",
-                    materials: ["бумага", "глянцевые вставки"],
-                    functions: "Shnuk OS 1, 2 месяца обновлений системы, с 15.09.26 по 15.11.26",
-                    displayName: "SHNUK 3 MINERAL"
-                },
-                {
-                    key: "devicepaper.png",
-                    name: "Shnuk 3 Paper",
+                    key: "2blaze.png",
+                    name: "Shnuk 2 Blaze",
                     materials: [
                         "бумага",
-                        "глянцевые вставки"
                     ],
-                    functions: "Shnuk OS 1, 1 месяц обновлений системы, с 15.09.26 по 15.10.26",
-                    displayName: "SHNUK 3 PAPER"
+                    functions: "Shnuk OS, 3 месяца обновлений системы, с 2026-09-20, по 2026-12-20",
+                    displayName: "SHNUK 2 BLAZE"
                 }
             ];
 
@@ -1815,93 +1302,7 @@
             const openSourceBtn = document.getElementById('openSourceBtn');
             const osClose = document.getElementById('osClose');
 
-            const tapokPage = document.getElementById('tapokPage');
-            const tapokImage = document.getElementById('tapokImage');
-            const tapokClose = document.getElementById('tapokClose');
-            const tapokLinkInHistory = document.getElementById('tapokLinkInHistory');
-
-            // ===== МОДАЛЬНОЕ ОКНО =====
-            const downloadBtn = document.getElementById('downloadBtn');
-            const downloadModal = document.getElementById('downloadModal');
-            const modalClose = document.getElementById('modalClose');
-
-            function openModal() {
-                downloadModal.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                downloadModal.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-
-            downloadBtn.addEventListener('click', openModal);
-            modalClose.addEventListener('click', closeModal);
-            downloadModal.addEventListener('click', function(e) {
-                if (e.target === downloadModal) {
-                    closeModal();
-                }
-            });
-
-            // Закрытие модального окна при клике на любой вариант
-            document.querySelectorAll('.modal-options .option-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    closeModal();
-                });
-            });
-
             const MAX_ANGLE = 20;
-
-            // ===== КАРУСЕЛЬ (без автопрокрутки) =====
-            const track = document.getElementById('carouselTrack');
-            const slides = track.querySelectorAll('.carousel-slide');
-            const prevBtn = document.getElementById('carouselPrev');
-            const nextBtn = document.getElementById('carouselNext');
-            let currentIndex = 0;
-
-            function goToSlide(index) {
-                currentIndex = index;
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                const video = slides[0].querySelector('video');
-                if (video) {
-                    if (currentIndex === 0) {
-                        video.play().catch(() => {});
-                    } else {
-                        video.pause();
-                    }
-                }
-            }
-
-            function nextSlide() {
-                goToSlide((currentIndex + 1) % slides.length);
-            }
-
-            function prevSlide() {
-                goToSlide((currentIndex - 1 + slides.length) % slides.length);
-            }
-
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-
-            // ===== ФУНКЦИЯ ОТКРЫТИЯ TAPOK =====
-            function openTapok() {
-                tapokPage.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                const video = slides[0].querySelector('video');
-                if (video && currentIndex === 0) {
-                    setTimeout(() => video.play().catch(() => {}), 300);
-                }
-            }
-
-            function closeTapok() {
-                tapokPage.classList.remove('open');
-                document.body.style.overflow = '';
-                const video = slides[0].querySelector('video');
-                if (video) video.pause();
-                if (downloadModal.classList.contains('open')) {
-                    closeModal();
-                }
-            }
 
             // ===== ИСТОРИЯ =====
             historyBtn.addEventListener('click', function() {
@@ -1918,23 +1319,6 @@
                 }
             });
 
-            // ===== TAPOK =====
-            tapokImage.addEventListener('click', openTapok);
-
-            tapokClose.addEventListener('click', closeTapok);
-
-            tapokPage.addEventListener('click', function(e) {
-                if (e.target === tapokPage) {
-                    closeTapok();
-                }
-            });
-
-            tapokLinkInHistory.addEventListener('click', function(e) {
-                e.preventDefault();
-                historyOverlay.classList.remove('open');
-                setTimeout(openTapok, 300);
-            });
-
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     if (historyOverlay.classList.contains('open')) {
@@ -1947,12 +1331,6 @@
                     if (opensourcePage.classList.contains('open')) {
                         opensourcePage.classList.remove('open');
                         document.body.style.overflow = '';
-                    }
-                    if (tapokPage.classList.contains('open')) {
-                        closeTapok();
-                    }
-                    if (downloadModal.classList.contains('open')) {
-                        closeModal();
                     }
                 }
             });
