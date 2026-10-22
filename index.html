@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="scaT9KXhZ9SdTtI6q_GQ-ScAfi0M9rjQop3l9w-lfxY" />
     <title>Shnuk</title>
-    
+
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="apple-touch-icon" href="icon.png">
 
@@ -39,847 +39,16 @@
             font-family: 'TT-Paplane', sans-serif;
             user-select: none;
             overflow-x: hidden;
+            transition: background-color 0.2s ease;
+            will-change: background-color;
         }
 
-        /* ===== КУРСОР ===== */
         @media (hover: hover) and (pointer: fine) {
             * { cursor: none !important; }
-            .custom-cursor {
-                position: fixed;
-                pointer-events: none;
-                z-index: 9999;
-                width: 30px;
-                height: 30px;
-                transform: translate(-50%, -50%);
-                will-change: transform;
-                display: block;
-            }
-            .custom-cursor img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                display: block;
-            }
         }
 
         @media (hover: none) or (pointer: coarse) {
-            .custom-cursor { display: none !important; }
             * { cursor: auto !important; }
-        }
-
-        /* ===== ФОН ===== */
-        .wallpaper-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background-image: url('wallpaper.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.35;
-        }
-
-        .scroll-gray-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: #f2f2f2;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.15s linear;
-            will-change: opacity;
-        }
-
-        .main-content {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            padding-bottom: 140px;
-            isolation: isolate;
-        }
-
-        /* ===== РАЗМЫТИЕ НИЖНЕЙ КРОМКИ ===== */
-        .main-content::after {
-            content: '';
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 90px;
-            pointer-events: none;
-            z-index: 800;
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            -webkit-mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 100%);
-            mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 100%);
-        }
-
-        /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-            gap: 40px;
-        }
-
-        .hero .subtitle {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 24px;
-            letter-spacing: 3px;
-            color: #000000;
-            display: inline-block;
-            padding: 8px 30px;
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        /* ===== ЛЕТАЮЩИЙ 3D-ЗАГОЛОВОК ===== */
-        .floating-heading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 500;
-            perspective: 800px;
-            transition: top 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                        left 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: top, left, transform;
-            pointer-events: none;
-        }
-
-        .floating-heading.docked {
-            top: 20px;
-            left: 30px;
-            transform: translate(0, 0) scale(0.42);
-            transform-origin: top left;
-        }
-
-        .floating-heading h1 {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 72px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 10px 40px;
-            background: #cc0000;
-            line-height: 1.2;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
-            will-change: transform;
-            white-space: nowrap;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-        .floating-heading.hero-pos {
-            top: calc(50% - 70px);
-        }
-
-        /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
-        .text-content {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 1.9;
-            color: #222222;
-            letter-spacing: 0.5px;
-        }
-
-        .text-content .highlight {
-            color: #cc0000;
-            font-weight: 700;
-        }
-
-        .text-content p {
-            margin-bottom: 18px;
-        }
-
-        .text-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .text-content .center {
-            text-align: center;
-        }
-
-        .text-content a {
-            color: #cc0000;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .text-content a:hover {
-            color: #990000;
-        }
-
-        .section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section-title {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 32px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 30px;
-            display: inline-block;
-            padding: 10px 40px;
-            background: #cc0000;
-        }
-
-        .section-title span {
-            color: #ffffff;
-        }
-
-        /* ===== РАЗДЕЛ ОБНОВЛЕНИЙ ===== */
-        .updates-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            text-align: center;
-        }
-
-        .updates-section .section-title {
-            text-align: center;
-        }
-
-        .updates-section .updates-selector {
-            margin: 0 auto 30px;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .updates-section .updates-selector label {
-            display: block;
-            font-family: 'TT-Paplane', sans-serif;
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #888888;
-            margin-bottom: 8px;
-        }
-
-        .updates-section .updates-selector select {
-            font-family: 'TT-Paplane', sans-serif;
-            font-size: 18px;
-            letter-spacing: 1px;
-            color: #000000;
-            background: #ffffff;
-            border: 1px solid #cccccc;
-            border-radius: 0;
-            padding: 12px 20px;
-            min-width: 260px;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.3s ease;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-image: linear-gradient(45deg, transparent 50%, #cc0000 50%),
-                              linear-gradient(135deg, #cc0000 50%, transparent 50%);
-            background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
-            background-size: 6px 6px, 6px 6px;
-            background-repeat: no-repeat;
-            padding-right: 44px;
-        }
-
-        .updates-section .updates-selector select:hover,
-        .updates-section .updates-selector select:focus {
-            border-color: #cc0000;
-        }
-
-        .updates-section .timer-wrapper {
-            margin-top: 10px;
-        }
-
-        .updates-section .timer-device-name {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 22px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #000000;
-            margin-bottom: 20px;
-        }
-
-        .updates-section .timer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .updates-section .timer-cell {
-            background: transparent;
-            color: #000000;
-            padding: 16px 8px;
-            min-width: 96px;
-            flex: 0 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .updates-section .timer-cell .timer-value {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 32px;
-            letter-spacing: 2px;
-            line-height: 1;
-            color: #000000;
-        }
-
-        .updates-section .timer-cell .timer-label {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #888888;
-        }
-
-        .updates-section .timer-status {
-            font-family: 'TT-Paplane', sans-serif;
-            font-size: 16px;
-            letter-spacing: 1px;
-            color: #444444;
-            margin-top: 10px;
-        }
-
-        .updates-section .timer-status.ended {
-            color: #cc0000;
-            font-weight: 700;
-        }
-
-        /* ===== ОСТАЛЬНЫЕ СЕКЦИИ ===== */
-        .message-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .message-section .section-title {
-            text-align: center;
-        }
-
-        .about-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .about-section .section-title {
-            text-align: center;
-        }
-
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .team-member {
-            width: 200px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            padding: 10px;
-        }
-
-        .team-member:hover {
-            transform: translateY(-6px);
-        }
-
-        .team-member .member-name {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            color: #000000;
-            letter-spacing: 1px;
-        }
-
-        .team-member .member-role {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 13px;
-            color: #888888;
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
-        .history-btn {
-            display: inline-block;
-            padding: 14px 40px;
-            background: #cc0000;
-            color: #ffffff;
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 0;
-            cursor: none !important;
-            transition: background 0.3s ease, transform 0.3s ease;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .history-btn:hover {
-            background: #990000;
-            transform: scale(1.03);
-        }
-
-        .dev-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .dev-section .section-title {
-            text-align: center;
-        }
-
-        .dev-section .dev-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .dev-section .dev-btn {
-            display: inline-block;
-            padding: 14px 40px;
-            background: #cc0000;
-            color: #ffffff;
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 0;
-            cursor: none !important;
-            transition: background 0.3s ease, transform 0.3s ease;
-            text-decoration: none;
-        }
-
-        .dev-section .dev-btn:hover {
-            background: #990000;
-            transform: scale(1.03);
-        }
-
-        .law-section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 40px 50px;
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .law-section .section-title {
-            text-align: center;
-        }
-
-        .law-section .text-content {
-            font-size: 20px;
-            text-align: center;
-        }
-
-        /* ===== СТРАНИЦА T3 ===== */
-        .t3-page {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            background: #ffffff;
-            overflow-y: auto;
-            padding: 0;
-        }
-
-        .t3-page.open {
-            display: block;
-        }
-
-        .t3-page::after {
-            content: '';
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 90px;
-            pointer-events: none;
-            z-index: 20;
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            -webkit-mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 100%);
-            mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 100%);
-        }
-
-        .t3-page .t3-header {
-            width: 100%;
-            padding: 40px 20px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: #ffffff;
-        }
-
-        .t3-page .t3-header h1 {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 36px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 10px 40px;
-            background: #cc0000;
-        }
-
-        .t3-page .t3-close {
-            position: fixed;
-            top: 20px;
-            right: 30px;
-            background: none;
-            border: none;
-            font-size: 40px;
-            color: #000000;
-            cursor: none !important;
-            z-index: 20;
-            font-family: 'TT-Paplane', sans-serif;
-            transition: transform 0.3s ease;
-        }
-
-        .t3-page .t3-close:hover {
-            transform: rotate(90deg);
-            color: #cc0000;
-        }
-
-        .t3-page .t3-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-        }
-
-        .t3-page .t3-content .t3-block {
-            margin-bottom: 50px;
-        }
-
-        .t3-page .t3-content .t3-block h2 {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 28px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 8px 30px;
-            background: #cc0000;
-            margin-bottom: 20px;
-        }
-
-        .t3-page .t3-content .t3-block p {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 1.8;
-            color: #222222;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
-
-        .t3-page .t3-content .t3-block p:last-child {
-            margin-bottom: 0;
-        }
-
-        .t3-page .t3-content .t3-block .t3-image {
-            margin: 15px 0;
-            max-width: 100%;
-        }
-
-        .t3-page .t3-content .t3-block .t3-image img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border: 1px solid #e0e0e0;
-        }
-
-        /* ===== СТРАНИЦА OPEN SOURCE ===== */
-        .opensource-page {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            background: #ffffff;
-            overflow-y: auto;
-            padding: 0;
-        }
-
-        .opensource-page.open {
-            display: block;
-        }
-
-        .opensource-page::after {
-            content: '';
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 90px;
-            pointer-events: none;
-            z-index: 20;
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            -webkit-mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 100%);
-            mask-image: linear-gradient(to top, #000 0%, #000 40%, transparent 100%);
-        }
-
-        .opensource-page .os-header {
-            width: 100%;
-            padding: 40px 20px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: #ffffff;
-        }
-
-        .opensource-page .os-header h1 {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 36px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 10px 40px;
-            background: #cc0000;
-        }
-
-        .opensource-page .os-close {
-            position: fixed;
-            top: 20px;
-            right: 30px;
-            background: none;
-            border: none;
-            font-size: 40px;
-            color: #000000;
-            cursor: none !important;
-            z-index: 20;
-            font-family: 'TT-Paplane', sans-serif;
-            transition: transform 0.3s ease;
-        }
-
-        .opensource-page .os-close:hover {
-            transform: rotate(90deg);
-            color: #cc0000;
-        }
-
-        .opensource-page .os-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-        }
-
-        .opensource-page .os-content .os-image {
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        .opensource-page .os-content .os-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .opensource-page .os-content p {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 1.8;
-            color: #222222;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
-
-        .opensource-page .os-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .opensource-page .os-content a {
-            color: #cc0000;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            transition: color 0.3s ease;
-        }
-
-        .opensource-page .os-content a:hover {
-            color: #990000;
-        }
-
-        .history-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .history-overlay.open {
-            display: flex;
-        }
-
-        .history-popup {
-            background: #ffffff;
-            max-width: 800px;
-            width: 92%;
-            max-height: 85vh;
-            padding: 40px 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-            border-radius: 0;
-            overflow-y: auto;
-        }
-
-        .history-overlay.open .history-popup {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .history-popup .close-history {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 32px;
-            color: #000000;
-            transition: transform 0.3s ease;
-            font-family: 'TT-Paplane', sans-serif;
-            cursor: none !important;
-        }
-
-        .history-popup .close-history:hover {
-            transform: rotate(90deg);
-            color: #cc0000;
-        }
-
-        .history-popup .history-title {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 700;
-            font-size: 28px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #ffffff;
-            display: inline-block;
-            padding: 10px 30px;
-            background: #cc0000;
-            margin-bottom: 20px;
-        }
-
-        .history-popup .history-text {
-            font-family: 'TT-Paplane', sans-serif;
-            font-weight: 400;
-            font-size: 17px;
-            line-height: 1.8;
-            color: #222222;
-        }
-
-        .footer {
-            width: 100%;
-            padding: 30px 20px 40px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            margin-top: 0;
-            background: transparent;
-        }
-
-        .footer .footer-image {
-            max-width: 200px;
-            margin: 0 auto;
-        }
-
-        .footer .footer-image img {
-            width: 100%;
-            height: auto;
-            display: block;
         }
 
         .custom-cursor {
@@ -900,737 +69,1126 @@
             display: block;
         }
 
-        /* ===== НИЖНИЙ ДОК ===== */
-        .dock {
+        @media (hover: none) or (pointer: coarse) {
+            .custom-cursor { display: none !important; }
+        }
+
+        /* ===== ВВОДНЫЙ ЭКРАН ===== */
+        .intro-screen {
             position: fixed;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 900;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                        gap 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: transform, gap;
+            padding: 40px 20px;
+            gap: 24px;
+            text-align: center;
+            background: #ffffff;
+            z-index: 100;
+            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+            will-change: opacity, filter, transform;
         }
 
-        .dock:hover {
-            transform: translateX(-50%) scaleX(1.04);
-            gap: 18px;
+        .intro-screen .company-logo {
+            width: 140px;
+            height: 140px;
         }
 
-        .dock .dock-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            padding: 0;
-            margin: 0;
-            background: transparent;
+        .intro-screen .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .intro-screen .company-name {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 2px;
             color: #000000;
-            text-decoration: none;
-            transform-origin: bottom center;
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                        background 0.3s ease;
-            cursor: none !important;
+            line-height: 1.2;
+        }
+
+        .intro-screen .quote-block {
+            max-width: 600px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .intro-screen .quote-text {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.7;
+            letter-spacing: 0.5px;
+            color: #888888;
+            min-height: 3.4em;
+            transition: opacity 0.5s ease, filter 0.5s ease;
+            will-change: opacity, filter;
+        }
+
+        .intro-screen .quote-text.fade-out {
+            opacity: 0;
+            filter: blur(8px);
+        }
+
+        .intro-screen .quote-author {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            color: #888888;
+            margin-top: 10px;
+            text-align: right;
+            transition: opacity 0.5s ease, filter 0.5s ease;
+            will-change: opacity, filter;
+        }
+
+        .intro-screen .quote-author.fade-out {
+            opacity: 0;
+            filter: blur(8px);
+        }
+
+        .intro-screen .type-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: #888888;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ===== ОСНОВНОЙ САЙТ ===== */
+        .main-site {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            padding-top: 100vh;
+            padding-bottom: 60px;
+        }
+
+        /* ===== ВЕРХНЯЯ ПАНЕЛЬ ===== */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 12px;
+            z-index: 300;
+            background: rgba(255, 255, 255, 0.55);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            backdrop-filter: blur(16px) saturate(160%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: opacity 0.4s ease, transform 0.4s ease,
+                        background 0.4s ease, border-color 0.4s ease;
+            will-change: opacity, transform, background;
+            pointer-events: none;
+        }
+
+        .top-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .top-bar.dark {
+            background: rgba(0, 0, 0, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar .top-logo {
+            position: relative;
+            width: 32px;
+            height: 32px;
             flex-shrink: 0;
+        }
+
+        .top-bar .top-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: opacity 0.4s ease;
+        }
+
+        .top-bar .top-logo .logo-old {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .top-bar.dark .top-logo .logo-new {
+            opacity: 0;
+        }
+
+        .top-bar.dark .top-logo .logo-old {
+            opacity: 1;
+        }
+
+        .top-bar .top-name {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: #000000;
+            transition: color 0.4s ease;
+        }
+
+        .top-bar.dark .top-name {
+            color: #ffffff;
+        }
+
+        /* ===== ПОИСК ===== */
+        .search-wrapper {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             position: relative;
         }
 
-        .dock .dock-item svg {
-            width: 22px;
-            height: 22px;
-            display: block;
+        .search-input-wrap {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0;
+            pointer-events: none;
+            width: 480px;
+            max-width: 90vw;
+            z-index: 400;
+            transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+
+        .search-wrapper.open .search-input-wrap {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .search-input {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            color: #000000;
+            background: #ffffff;
+            border: 2px solid #cc0000;
+            padding: 16px 20px;
+            width: 100%;
+            outline: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            cursor: auto !important;
+            user-select: text;
+        }
+
+        .search-btn {
+            position: relative;
+            z-index: 500;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            padding: 0;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+            cursor: none !important;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .search-btn svg {
+            width: 20px;
+            height: 20px;
             fill: none;
             stroke: #000000;
-            stroke-width: 1.8;
+            stroke-width: 2;
             stroke-linecap: square;
             stroke-linejoin: miter;
-            pointer-events: none;
-            transition: stroke 0.3s ease;
+            transition: stroke 0.4s ease;
         }
 
-        .dock .dock-item.active {
-            background: #cc0000;
-        }
-
-        .dock .dock-item.active svg {
+        .top-bar.dark .search-btn svg {
             stroke: #ffffff;
         }
 
+        mark.search-highlight {
+            background: #ffe600;
+            color: #000000;
+            padding: 0;
+            display: inline-block;
+        }
+
+        /* ===== ДЕРЕВО СЕЧЕНИЙ ===== */
+        .timeline-tree {
+            position: fixed;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            z-index: 140;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            will-change: opacity;
+        }
+
+        .timeline-tree.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .timeline-tree .tree-trunk {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 5px;
+            width: 1px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-tree .tree-node {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            padding: 14px 0;
+            text-decoration: none;
+            cursor: none !important;
+        }
+
+        .timeline-tree .tree-node .node-label {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #888888;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+            opacity: 0.75;
+        }
+
+        .timeline-tree .tree-node .node-dot {
+            position: relative;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid #bbbbbb;
+            flex-shrink: 0;
+            transition: background 0.3s ease, border-color 0.3s ease,
+                        transform 0.3s ease, border-radius 0.3s ease;
+            z-index: 1;
+        }
+
+        .timeline-tree .tree-node.active .node-label {
+            color: #cc0000;
+            opacity: 1;
+        }
+
+        .timeline-tree .tree-node.active .node-dot {
+            background: #cc0000;
+            border-color: #cc0000;
+            border-radius: 0;
+            transform: scale(1.2);
+        }
+
         @media (hover: hover) and (pointer: fine) {
-            .dock .dock-item:hover {
-                transform: scale(1.35);
-                background: #cc0000;
+            .timeline-tree .tree-node:hover .node-label {
+                color: #000000;
+                opacity: 1;
             }
-
-            .dock .dock-item:hover svg {
-                stroke: #ffffff;
-            }
-
-            .dock .dock-item:hover + .dock-item,
-            .dock .dock-item:has(+ .dock-item:hover) {
-                transform: scale(1.12);
+            .timeline-tree .tree-node:hover .node-dot {
+                border-color: #cc0000;
             }
         }
 
-        @media (hover: none) {
-            .dock .dock-item:hover,
-            .dock .dock-item:hover + .dock-item,
-            .dock .dock-item:has(+ .dock-item:hover) {
-                transform: none;
-            }
-            .dock:hover {
-                transform: translateX(-50%);
-                gap: 12px;
-            }
+        /* ===== ВИНЕТКА ===== */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 130;
+            pointer-events: none;
+            opacity: 0;
+            will-change: opacity;
+            background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.55) 100%);
         }
 
+        .vignette-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 129;
+            pointer-events: none;
+            opacity: 0;
+            will-change: opacity;
+            -webkit-backdrop-filter: blur(40px);
+            backdrop-filter: blur(40px);
+            -webkit-mask-image: radial-gradient(ellipse at center, transparent 15%, #000 100%);
+            mask-image: radial-gradient(ellipse at center, transparent 15%, #000 100%);
+        }
+
+        /* ===== СЕКЦИИ ===== */
+        .year-section {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .year-section .year-title {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 72px;
+            letter-spacing: 4px;
+            color: #000000;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .year-section .year-placeholder {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            color: #aaaaaa;
+            line-height: 1.7;
+        }
+
+        /* ===== ПЕРВАЯ СЕКЦИЯ ===== */
+        .year-section.first-section {
+            max-width: 1000px;
+            padding: 100px 40px;
+        }
+
+        .year-section.first-section .hero-heading {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 56px;
+            letter-spacing: 2px;
+            color: #000000;
+            line-height: 1.1;
+            margin-bottom: 50px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .hero-image {
+            width: 100%;
+            margin-bottom: 40px;
+            background: #f2f2f2;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .first-section .caption {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #000000;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .os-heading-block {
+            margin-top: 70px;
+            text-align: left;
+        }
+
+        .os-heading-block .os-heading {
+            display: inline-block;
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: #cc0000;
+            padding: 12px 40px;
+            line-height: 1.2;
+        }
+
+        .os-heading-block .os-subtext {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            color: #888888;
+            line-height: 1.7;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .os-heading-block .os-description {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            color: #222222;
+            line-height: 1.8;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .os-heading-block .os-description p {
+            margin-bottom: 18px;
+        }
+
+        .os-heading-block .os-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .os-heading-block .os-description .highlight {
+            color: #cc0000;
+            font-weight: 700;
+        }
+
+        .os-try-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            padding: 12px 28px 12px 14px;
+            background: #cc0000;
+            color: #ffffff;
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: none !important;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .os-try-btn:hover {
+            background: #990000;
+            transform: scale(1.03);
+        }
+
+        .os-try-btn .os-try-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .os-try-btn .os-try-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ===== ОБЩИЕ БЛОКИ ДЛЯ ГОДОВ ===== */
+        .content-block {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-heading {
+            display: inline-block;
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: #cc0000;
+            padding: 12px 40px;
+            line-height: 1.2;
+        }
+
+        .content-text {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            color: #222222;
+            line-height: 1.8;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .content-text p {
+            margin-bottom: 16px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text .highlight {
+            color: #cc0000;
+            font-weight: 700;
+        }
+
+        .content-text a {
+            color: #cc0000;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .content-text a:hover {
+            color: #990000;
+        }
+
+        /* ===== АНИМАЦИЯ СТАРОГО SHNUK ===== */
+        .old-anim {
+            margin-top: 30px;
+            display: block;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .old-anim img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: transparent;
+        }
+
+        .old-anim2-container {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            background: transparent;
+        }
+
+        .old-anim2-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: transparent;
+        }
+
+        /* ===== T3-БЛОКИ ===== */
+        .t3-content {
+            margin-top: 30px;
+        }
+
+        .t3-block {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .t3-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .t3-block h2 {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            display: inline-block;
+            padding: 8px 30px;
+            background: #cc0000;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .t3-block p {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #222222;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .t3-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== ФИНАЛЬНЫЙ БЛОК С АНИМАЦИЕЙ И АВТОРАМИ ===== */
+        .final-block {
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            background: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-anim {
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .final-anim img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: transparent;
+        }
+
+        .authors-block {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .authors-col {
+            flex: 1 1 0;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .authors-col.left {
+            text-align: left;
+        }
+
+        .authors-col.center {
+            text-align: center;
+        }
+
+        .authors-col.right {
+            text-align: right;
+        }
+
+        .author-name {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .author-role {
+            font-family: 'TT-Paplane', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            color: #888888;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .author-role:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
         @media (max-width: 768px) {
-            .main-content::after { height: 70px; }
-            .t3-page::after { height: 70px; }
-            .opensource-page::after { height: 70px; }
-            .floating-heading h1 { font-size: 38px; padding: 8px 20px; letter-spacing: 4px; }
-            .floating-heading.hero-pos { top: calc(50% - 50px); }
-            .floating-heading.docked { top: 12px; left: 14px; transform: translate(0, 0) scale(0.55); }
-            .hero .subtitle { font-size: 16px; letter-spacing: 2px; padding: 6px 16px; }
-            .section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .section-title { font-size: 24px; letter-spacing: 3px; padding: 8px 24px; }
-            .text-content { font-size: 16px; }
-            .updates-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .updates-section .updates-selector select { min-width: 220px; font-size: 16px; }
-            .updates-section .timer-device-name { font-size: 18px; }
-            .updates-section .timer-cell { min-width: 78px; padding: 12px 6px; }
-            .updates-section .timer-cell .timer-value { font-size: 24px; }
-            .updates-section .timer-cell .timer-label { font-size: 10px; }
-            .message-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .about-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .about-section .text-content { font-size: 15px; }
-            .team-member { width: 160px; }
-            .team-member .member-name { font-size: 14px; }
-            .team-member .member-role { font-size: 12px; }
-            .footer .footer-image { max-width: 150px; }
-            .history-popup { padding: 30px 24px; }
-            .history-popup .history-title { font-size: 24px; padding: 8px 20px; }
-            .history-popup .history-text { font-size: 15px; }
-            .history-btn { padding: 12px 30px; font-size: 14px; letter-spacing: 3px; }
-            .dev-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .law-section { padding: 30px 24px; margin: 20px 16px; max-width: 100%; }
-            .law-section .text-content { font-size: 18px; }
-            .t3-page .t3-header h1 { font-size: 28px; padding: 8px 24px; }
-            .t3-page .t3-content .t3-block h2 { font-size: 24px; padding: 6px 20px; }
-            .t3-page .t3-content .t3-block p { font-size: 15px; }
-            .opensource-page .os-header h1 { font-size: 28px; padding: 8px 24px; }
-            .opensource-page .os-content p { font-size: 15px; }
+            .intro-screen .company-logo { width: 110px; height: 110px; }
+            .intro-screen .company-name { font-size: 28px; }
+            .intro-screen .quote-text { font-size: 16px; }
+            .intro-screen .quote-author { font-size: 13px; }
 
-            .dock { bottom: 12px; gap: 10px; padding: 10px; }
-            .dock .dock-item { width: 38px; height: 38px; }
-            .dock .dock-item svg { width: 18px; height: 18px; }
+            .top-bar { height: 52px; padding: 0 12px; gap: 8px; }
+            .top-bar .top-logo { width: 26px; height: 26px; }
+            .top-bar .top-name { font-size: 15px; }
+
+            .search-input-wrap {
+                top: 80px;
+                left: 12px;
+                right: 12px;
+                width: auto;
+                max-width: none;
+                transform: translate(0, 0) scale(0.95);
+            }
+
+            .search-wrapper.open .search-input-wrap {
+                transform: translate(0, 0) scale(1);
+            }
+
+            .search-input { font-size: 16px; padding: 14px 16px; }
+            .search-btn { width: 30px; height: 30px; }
+            .search-btn svg { width: 18px; height: 18px; }
+
+            .timeline-tree {
+                top: auto;
+                bottom: 16px;
+                right: 50%;
+                transform: translateX(50%);
+                flex-direction: row;
+                align-items: center;
+                gap: 6px;
+                padding: 6px 10px;
+                background: rgba(255, 255, 255, 0.85);
+                -webkit-backdrop-filter: blur(12px);
+                backdrop-filter: blur(12px);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            }
+
+            .timeline-tree .tree-trunk { display: none; }
+
+            .timeline-tree .tree-node {
+                padding: 6px 8px;
+                gap: 6px;
+            }
+
+            .timeline-tree .tree-node .node-label { font-size: 10px; letter-spacing: 0.5px; }
+            .timeline-tree .tree-node .node-dot { width: 8px; height: 8px; }
+
+            .year-section { padding: 60px 18px 90px; }
+            .year-section .year-title { font-size: 38px; }
+
+            .year-section.first-section { padding: 40px 16px 90px; }
+            .year-section.first-section .hero-heading { font-size: 30px; margin-bottom: 26px; }
+            .first-section .caption { font-size: 16px; }
+
+            .os-heading-block { margin-top: 40px; }
+            .os-heading-block .os-heading { font-size: 24px; padding: 9px 22px; }
+            .os-heading-block .os-subtext { font-size: 15px; }
+            .os-heading-block .os-description { font-size: 15px; }
+
+            .os-try-btn { font-size: 14px; padding: 10px 20px 10px 12px; gap: 10px; }
+            .os-try-btn .os-try-icon { width: 24px; height: 24px; }
+
+            .content-heading { font-size: 24px; padding: 9px 22px; letter-spacing: 2px; }
+            .content-text { font-size: 15px; }
+
+            .t3-block { margin-bottom: 32px; }
+            .t3-block h2 { font-size: 20px; padding: 6px 18px; letter-spacing: 2px; }
+            .t3-block p { font-size: 14px; }
+
+            .old-anim { max-width: 320px; margin-top: 24px; }
+            .old-anim2-container { max-width: 320px; margin-top: 24px; }
+
+            .final-block { padding: 30px 18px 20px; gap: 30px; }
+            .final-anim { max-width: 240px; }
+            .authors-block { gap: 16px; }
+            .authors-col { min-width: 140px; }
+            .author-name { font-size: 13px; }
+            .author-role { font-size: 12px; margin-bottom: 12px; }
         }
 
         @media (max-width: 480px) {
-            .main-content::after { height: 56px; }
-            .t3-page::after { height: 56px; }
-            .opensource-page::after { height: 56px; }
-            .floating-heading h1 { font-size: 28px; padding: 5px 12px; letter-spacing: 3px; }
-            .floating-heading.hero-pos { top: calc(50% - 36px); }
-            .floating-heading.docked { top: 8px; left: 10px; transform: translate(0, 0) scale(0.6); }
-            .hero .subtitle { font-size: 14px; letter-spacing: 1px; padding: 4px 10px; }
-            .section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .section-title { font-size: 20px; letter-spacing: 2px; padding: 6px 16px; margin-bottom: 20px; }
-            .text-content { font-size: 14px; }
-            .updates-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .updates-section .updates-selector select { min-width: 180px; font-size: 14px; padding: 10px 36px 10px 14px; }
-            .updates-section .timer-device-name { font-size: 15px; letter-spacing: 2px; }
-            .updates-section .timer-grid { gap: 8px; }
-            .updates-section .timer-cell { min-width: 62px; padding: 10px 4px; gap: 4px; }
-            .updates-section .timer-cell .timer-value { font-size: 20px; }
-            .updates-section .timer-cell .timer-label { font-size: 9px; letter-spacing: 1px; }
-            .message-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .about-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .about-section .text-content { font-size: 13px; }
-            .team-member { width: 140px; padding: 6px; }
-            .team-member .member-name { font-size: 12px; }
-            .team-member .member-role { font-size: 11px; }
-            .footer .footer-image { max-width: 120px; }
-            .history-popup { padding: 20px 14px; }
-            .history-popup .history-title { font-size: 20px; padding: 6px 16px; }
-            .history-popup .history-text { font-size: 13px; }
-            .history-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
-            .dev-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .dev-section .dev-btn { padding: 10px 20px; font-size: 12px; letter-spacing: 2px; }
-            .law-section { padding: 20px 14px; margin: 14px 10px; max-width: 100%; }
-            .law-section .text-content { font-size: 16px; }
-            .t3-page .t3-header h1 { font-size: 22px; padding: 6px 16px; }
-            .t3-page .t3-content .t3-block h2 { font-size: 20px; padding: 4px 14px; }
-            .t3-page .t3-content .t3-block p { font-size: 13px; }
-            .t3-page .t3-close { font-size: 30px; top: 15px; right: 20px; }
-            .opensource-page .os-header h1 { font-size: 22px; padding: 6px 16px; }
-            .opensource-page .os-content p { font-size: 13px; }
-            .opensource-page .os-close { font-size: 30px; top: 15px; right: 20px; }
+            .intro-screen .company-logo { width: 90px; height: 90px; }
+            .intro-screen .company-name { font-size: 24px; }
+            .intro-screen .quote-text { font-size: 14px; }
+            .intro-screen .quote-author { font-size: 12px; }
 
-            .dock { bottom: 8px; gap: 8px; padding: 8px; }
-            .dock .dock-item { width: 34px; height: 34px; }
-            .dock .dock-item svg { width: 16px; height: 16px; }
+            .top-bar { height: 48px; padding: 0 10px; gap: 6px; }
+            .top-bar .top-logo { width: 22px; height: 22px; }
+            .top-bar .top-name { font-size: 14px; }
+
+            .search-input-wrap {
+                top: 68px;
+                left: 10px;
+                right: 10px;
+            }
+
+            .search-input { font-size: 14px; padding: 12px 14px; }
+            .search-btn { width: 26px; height: 26px; }
+            .search-btn svg { width: 16px; height: 16px; }
+
+            .timeline-tree {
+                bottom: 10px;
+                padding: 5px 8px;
+                gap: 4px;
+            }
+            .timeline-tree .tree-node { padding: 4px 6px; gap: 5px; }
+            .timeline-tree .tree-node .node-label { font-size: 9px; letter-spacing: 0.3px; }
+            .timeline-tree .tree-node .node-dot { width: 7px; height: 7px; }
+
+            .year-section { padding: 40px 14px 90px; }
+            .year-section .year-title { font-size: 30px; margin-bottom: 20px; }
+
+            .year-section.first-section { padding: 30px 12px 90px; }
+            .year-section.first-section .hero-heading { font-size: 22px; margin-bottom: 20px; }
+            .first-section .caption { font-size: 13px; margin-top: 16px; }
+
+            .os-heading-block { margin-top: 30px; }
+            .os-heading-block .os-heading { font-size: 18px; padding: 7px 16px; letter-spacing: 2px; }
+            .os-heading-block .os-subtext { font-size: 13px; margin-top: 14px; }
+            .os-heading-block .os-description { font-size: 13px; margin-top: 20px; }
+
+            .os-try-btn { font-size: 12px; padding: 8px 16px 8px 10px; gap: 8px; margin-top: 20px; }
+            .os-try-btn .os-try-icon { width: 20px; height: 20px; }
+
+            .content-heading { font-size: 18px; padding: 7px 16px; letter-spacing: 1px; }
+            .content-text { font-size: 13px; margin-top: 14px; }
+
+            .t3-block { margin-bottom: 24px; }
+            .t3-block h2 { font-size: 16px; padding: 5px 14px; letter-spacing: 1px; margin-bottom: 14px; }
+            .t3-block p { font-size: 12px; line-height: 1.7; }
+
+            .old-anim { max-width: 260px; margin-top: 18px; }
+            .old-anim2-container { max-width: 260px; margin-top: 18px; }
+
+            .final-block { padding: 24px 12px 16px; gap: 24px; }
+            .final-anim { max-width: 200px; }
+            .authors-block { flex-direction: column; gap: 20px; }
+            .authors-col.left,
+            .authors-col.center,
+            .authors-col.right {
+                text-align: center;
+                width: 100%;
+            }
+            .author-name { font-size: 13px; }
+            .author-role { font-size: 12px; margin-bottom: 12px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="wallpaper-bg"></div>
-    <div class="scroll-gray-bg" id="scrollGrayBg"></div>
-
     <div class="custom-cursor" id="customCursor">
         <img src="mouse.png" alt="Cursor">
     </div>
 
-    <div class="floating-heading hero-pos" id="floatingHeading">
-        <h1 id="heading3d">SHNUK</h1>
-    </div>
-
-    <div class="main-content">
-
-        <section class="hero" id="hero">
-            <div class="subtitle">Добро пожаловать!</div>
-        </section>
-
-        <!-- ===== РАЗДЕЛ 1: ОБНОВЛЕНИЯ SHNUK OS ===== -->
-        <section class="updates-section" id="updatesSection">
-            <div class="section-title"><span>ОБНОВЛЕНИЯ SHNUK OS</span></div>
-
-            <div class="updates-selector">
-                <label for="deviceSelect">Выберите устройство</label>
-                <select id="deviceSelect">
-                    <option value="shnuk3">Shnuk 3</option>
-                    <option value="shnuk3blaze">Shnuk 3 Blaze</option>
-                    <option value="shnuk4">Shnuk 4</option>
-                </select>
-            </div>
-
-            <div class="timer-wrapper">
-                <div class="timer-device-name" id="timerDeviceName">SHNUK 3</div>
-                <div class="timer-grid" id="timerGrid">
-                    <div class="timer-cell">
-                        <div class="timer-value" id="timerDays">00</div>
-                        <div class="timer-label">дней</div>
-                    </div>
-                    <div class="timer-cell">
-                        <div class="timer-value" id="timerHours">00</div>
-                        <div class="timer-label">часов</div>
-                    </div>
-                    <div class="timer-cell">
-                        <div class="timer-value" id="timerMinutes">00</div>
-                        <div class="timer-label">минут</div>
-                    </div>
-                    <div class="timer-cell">
-                        <div class="timer-value" id="timerSeconds">00</div>
-                        <div class="timer-label">секунд</div>
-                    </div>
-                </div>
-                <div class="timer-status" id="timerStatus">Поддержка активна до 30.11.2026</div>
-            </div>
-        </section>
-
-        <!-- ===== РАЗДЕЛ 2: ПОСЛАНИЕ ===== -->
-        <section class="message-section" id="messageSection">
-            <div class="section-title"><span>О SHNUK OS</span></div>
-            <div class="text-content">
-                <p>Shnuk OS является браузерной операционной системой, все пользовательские данные хранятся исключительно на вашем устройстве (за исключением файлов, которыми вы делитесь через cooop).</p>
-                <p>Срок действия QR кода на каждом устройстве ограничен, это чисто техническое ограничение, так как огромное количество файлов-маршрутизаторов для каждой модели Shnuk занимали бы слишком много памяти. Мы не можем точно сказать когда QR код на вашем устройстве перестанет работать, но постараемся чтобы в течении следующих двух лет (на момент написания текста 13.09.26) все QR коды будут оставаться рабочими.</p>
-                <p><span class="highlight">С уважением, GLavin, Stepaska, Чапик, Роман Мужиков и Илья Бойков.</span></p>
-            </div>
-        </section>
-
-        <!-- ===== РАЗДЕЛ 3: О ПРОЕКТЕ ===== -->
-        <section class="about-section" id="aboutSection">
-            <div class="section-title"><span>О ПРОЕКТЕ</span></div>
-            <div class="text-content">
-                <p>Компания* Shnuk основана в 2023 году <span class="highlight">Романом Мужиковым</span>. Компания* производит бумажные телефоны**. Они являются бумажными моделями и не имеют функционала реальных смартфонов.</p>
-                <p>В проекте участвуют:</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-name">Главин Мстислав</div>
-                    <div class="member-role">Глава компании, маркетинг, производство, поддержка</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-name">Илья Степанов</div>
-                    <div class="member-role">Идеи</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-name">Андрей Петрунин</div>
-                    <div class="member-role">Ничего не сделал</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-name">Илья Бойков</div>
-                    <div class="member-role">Продажи + ничего не сделал</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-name">Роман Мужиков</div>
-                    <div class="member-role">Основатель, бывший глава компании</div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="history-btn" id="historyBtn">Полная история</button>
-            </div>
-        </section>
-
-        <!-- ===== РАЗДЕЛ 4: ДЛЯ РАЗРАБОТЧИКОВ ===== -->
-        <section class="dev-section" id="devSection">
-            <div class="section-title"><span>ДЛЯ РАЗРАБОТЧИКОВ</span></div>
-            <div class="text-content">
-                <p>Здесь собраны материалы для разработчиков и дизайнеров, работающих с продуктами*** Shnuk.</p>
-            </div>
-            <div class="dev-buttons">
-                <button class="dev-btn" id="openSourceBtn">Open Source</button>
-                <button class="dev-btn" id="t3Btn">T3</button>
-            </div>
-        </section>
-
-        <!-- ===== РАЗДЕЛ 5: ЗАКОН ===== -->
-        <section class="law-section" id="lawSection">
-            <div class="section-title"><span>ЗАКОН</span></div>
-            <div class="text-content">
-                <p>Компания* Shnuk НЕ занимается коммерческой деятельностью, мы продаем устройства*** в малых партиях, без цели заработка. Мы всегда говорим покупателям всё об устройствах***. Если же покупателю что-то не понравится в устройстве***, то он всегда может вернуть его нам и получить обратно свои деньги, с условием, что он никак не ухудшал состояние устройства***.</p>
-                <p>* - Shnuk называется компанией исключительно в шуточном ключе. Проект имеет исключительно развлекательный и образовательный характер. Мы продаем устройства в крайне низких партиях, по низкой цене, чтобы окупить свой труд и расходы.</p>
-                <p>** - Устройства Shnuk не являются настоящими телефонами, они не могут звонить. Любое упоминание устройств Shnuk как "телефонов" или "смартфонов" является шуточным.</p>
-                <p>*** - Устройством подразумивается бумажная модель, не имеющая реальной функциональности. Любое упоминание продуктов Shnuk как устройств, является шуточным. (Так же см. пункты * и **)</p>
-            </div>
-        </section>
-
-    </div>
-
-    <footer class="footer">
-        <div class="footer-image">
-            <img src="axogen.png" alt="Axogen">
+    <div class="intro-screen" id="introScreen">
+        <div class="company-logo">
+            <img src="icon-company.png" alt="Shnuk">
         </div>
-    </footer>
+        <div class="company-name">Shnuk.</div>
 
-    <!-- ===== НИЖНИЙ ДОК ===== -->
-    <nav class="dock" id="dock">
-        <a class="dock-item" href="#updatesSection" data-section="updatesSection" aria-label="Обновления Shnuk OS">
-            <svg viewBox="0 0 24 24">
-                <polyline points="20,12 20,19 4,19 4,12"></polyline>
-                <polyline points="8,8 12,4 16,8"></polyline>
-                <line x1="12" y1="4" x2="12" y2="15"></line>
-            </svg>
+        <div class="quote-block">
+            <div class="quote-text" id="quoteText"></div>
+            <div class="quote-author" id="quoteAuthor"></div>
+        </div>
+    </div>
+
+    <div class="top-bar" id="topBar">
+        <div class="top-logo">
+            <img class="logo-new" src="icon-mini.png" alt="Shnuk">
+            <img class="logo-old" src="old-shnuk.png" alt="Old Shnuk">
+        </div>
+        <div class="top-name">Shnuk</div>
+
+        <div class="search-wrapper" id="searchWrapper">
+            <div class="search-input-wrap">
+                <input type="text" class="search-input" id="searchInput" placeholder="Поиск по странице...">
+            </div>
+            <button class="search-btn" id="searchBtn" aria-label="Поиск">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="16" y1="16" x2="21" y2="21"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <nav class="timeline-tree" id="timelineTree">
+        <div class="tree-trunk"></div>
+        <a class="tree-node" href="#year2026" data-year="year2026">
+            <span class="node-label">2026 год</span>
+            <span class="node-dot"></span>
         </a>
-        <a class="dock-item" href="#messageSection" data-section="messageSection" aria-label="О Shnuk OS">
-            <svg viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14" rx="0"></rect>
-                <polyline points="3,6 12,13 21,6"></polyline>
-            </svg>
+        <a class="tree-node" href="#year2025" data-year="year2025">
+            <span class="node-label">2025 год</span>
+            <span class="node-dot"></span>
         </a>
-        <a class="dock-item" href="#aboutSection" data-section="aboutSection" aria-label="О проекте">
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"></circle>
-                <line x1="12" y1="11" x2="12" y2="17"></line>
-                <line x1="12" y1="7" x2="12" y2="8"></line>
-            </svg>
+        <a class="tree-node" href="#year2024" data-year="year2024">
+            <span class="node-label">2024 год</span>
+            <span class="node-dot"></span>
         </a>
-        <a class="dock-item" href="#devSection" data-section="devSection" aria-label="Для разработчиков">
-            <svg viewBox="0 0 24 24">
-                <polyline points="9,7 4,12 9,17"></polyline>
-                <polyline points="15,7 20,12 15,17"></polyline>
-            </svg>
-        </a>
-        <a class="dock-item" href="#lawSection" data-section="lawSection" aria-label="Закон">
-            <svg viewBox="0 0 24 24">
-                <line x1="12" y1="3" x2="12" y2="21"></line>
-                <line x1="5" y1="7" x2="19" y2="7"></line>
-                <polyline points="5,7 2,13 8,13 5,7"></polyline>
-                <polyline points="19,7 16,13 22,13 19,7"></polyline>
-                <line x1="9" y1="21" x2="15" y2="21"></line>
-            </svg>
+        <a class="tree-node" href="#year2023" data-year="year2023">
+            <span class="node-label">2023 год</span>
+            <span class="node-dot"></span>
         </a>
     </nav>
 
-    <!-- ===== ОКНО ПОЛНОЙ ИСТОРИИ ===== -->
-    <div class="history-overlay" id="historyOverlay">
-        <div class="history-popup">
-            <button class="close-history" id="historyClose">✕</button>
-            <div class="history-title">ПОЛНАЯ ИСТОРИЯ</div>
-            <div class="history-text">
-                <p>Компания* Shnuk была основана Романом Мужиковым в 2023 году. Первые устройства*** Shnuk имели низкую цену, но были значительно менее качественными, чем современные модели.
-Так продолжалось до 2025 года, осенью проект столкнулся с большими убытками и почти был закрыт. В ноябре 2025 года Главин Мстислав совместно с Ильёй Степановым начали выпуск
-сериала по тапкам The Tapok Cross. Всего вышло около 20 эпизодов с ноября 2025 года по март 2026 года. Сериал по тапкам был завершён. Франшиза тапков продолжилась игрой по тапкам
-по этой вселенной, которая была выпущена в сентябре 2026 года. В апреле 2026 года стартовали первые продажи за год.</p>
-            </div>
-        </div>
-    </div>
+    <div class="vignette-blur" id="vignetteBlur"></div>
+    <div class="vignette" id="vignette"></div>
 
-    <!-- ===== СТРАНИЦА OPEN SOURCE ===== -->
-    <div class="opensource-page" id="opensourcePage">
-        <div class="os-header">
-            <h1>ОБ OPEN SOURCE</h1>
-        </div>
-        <button class="os-close" id="osClose">✕</button>
+    <main class="main-site" id="mainSite">
+        <section class="year-section first-section" id="year2026">
+            <div class="hero-heading">2026</div>
 
-        <div class="os-content">
-            <div class="os-image">
-                <img src="opensourse.png" alt="Open Source">
-            </div>
-            <p>Компания* Shnuk всегда предоставляла и предоставляет файлы в открытом доступе. Вы всегда можете взять и распечатать любую нашу модель Shnuk, но всегда помните: это НЕ оригинальная модель, она может отличаться по размеру и по качеству.</p>
-            <p>Если вы будете отдавать кому-то такую самодельную модель, то никогда не называйте её оригинальной.</p>
-            <p><a href="https://github.com/glavinmstislav-eng/shnuk-opensourse/releases" target="_blank">Исходники Shnuk</a></p>
-        </div>
-    </div>
-
-    <!-- ===== СТРАНИЦА T3 (О ДИЗАЙНЕ SHNUK) ===== -->
-    <div class="t3-page" id="t3Page">
-        <div class="t3-header">
-            <h1>О ДИЗАЙНЕ SHNUK</h1>
-        </div>
-        <button class="t3-close" id="t3Close">✕</button>
-
-        <div class="t3-content">
-            <div class="t3-block" id="t3-intro">
-                <h2>Введение</h2>
-                <p>Начнем с основ фирменного стиля Shnuk. В его основе лежит индустриальный эстетический подход, отличительными чертами которого выступают унифицированная цветовая палитра и строгая геометрия без лишних деталей.</p>
-                <p>Если вы планируете предложить нам концепцию внешнего вида какого-либо устройства, настоятельно рекомендуем опираться на данную статью. Это поможет вашему проекту успешно пройти внутреннюю проверку и значительно повысит его шансы на воплощение в реальную модель. Материал будет одинаково полезен как для специалистов по компьютерной графике, стремящихся точно воспроизвести стиль в цифровых сценах, так и для инженеров, занимающихся созданием физических прототипов в нашей дизайн-философии.</p>
+            <div class="hero-image">
+                <img src="img1.png" alt="Shnuk 4">
             </div>
 
-            <div class="t3-block" id="t3-windows">
-                <h2>Окна и цвета</h2>
-                <p>Ключевое внимание стоит уделить цветам - именно они придают стилю Shnuk ту самую узнаваемую индивидуальность.</p>
-                <div class="t3-image">
-                    <img src="colors.png" alt="Цветовая палитра Shnuk">
+            <div class="caption">Shnuk 4, эта первая модель Shnuk с потдержкой Shnuk OS 3.</div>
+
+            <div class="os-heading-block">
+                <div class="os-heading">Shnuk OS</div>
+                <div class="os-subtext">Веб оболочка Shnuk, которая смогла.</div>
+                <div class="os-description">
+                    <p><span class="highlight">Нововведения Shnuk OS 3.2:</span> Теперь Вы можете запускать Shnuk OS и на ПК. Для того чтобы это сделать перейдите в мобильной версии Shnuk OS в настройки, нажмите на три полоски, выберете пункт "PC Mode", нажмите "Создать приглашение", теперь введите код приглашения в Shnuk OS на ПК, после чего на ПК появится ответный код. Введите его в программе на телефоне. Теперь вы можете запустить Shnuk OS на ПК. Главные отличия от мобильной версии: Своё изображение курсора, нижний бар, приложения открываются в окнах.</p>
                 </div>
-                <p>Базовая палитра насчитывает четыре основных цвета: красный, серый, черный и белый.</p>
-                <p>Белый цвет, как правило, отводится под фоновые поверхности окон, а также используется для набора текста в заголовках. Красный применяется для подложек заголовков и тех элементов интерфейса, которые требуют визуального акцента. Черный предназначен для основного массива текста, тогда как серый традиционно закреплен за второстепенными элементами, не претендующими на первое место в иерархии. Рекомендуется использовать палитру Shnuk именно в таком распределении ролей, чтобы сохранить аутентичность.</p>
-                <p>Теперь перейдем к оконным элементам. В дизайне Shnuk предусмотрено два типа окон: фоновые подложки для разделов (выступающие в роли базовой поверхности) и стандартные окна, чаще всего всплывающие. Все они выполняются в белом цвете и не имеют закруглений по углам. Для отделения окон от основного фона допускается применение легких, едва заметных теней, обеспечивающих необходимую глубину композиции.</p>
+                <a class="os-try-btn" href="os.html">
+                    <span class="os-try-icon">
+                        <img src="os-icon.png" alt="Shnuk OS">
+                    </span>
+                    <span>Попробовать</span>
+                </a>
             </div>
 
-            <div class="t3-block" id="t3-text">
-                <h2>Текст</h2>
-                <div class="t3-image">
-                    <img src="font.png" alt="Шрифт TT_Paplane_Trial_Regular">
+            <div class="content-block" style="margin-top: 70px;">
+                <div class="content-heading">Shnuk Design</div>
+                <div class="t3-content">
+                    <div class="t3-block" id="t3-intro">
+                        <h2>Введение</h2>
+                        <p>Начнем с основ фирменного стиля Shnuk. В его основе лежит индустриальный эстетический подход, отличительными чертами которого выступают унифицированная цветовая палитра и строгая геометрия без лишних деталей.</p>
+                        <p>Если вы планируете предложить нам концепцию внешнего вида какого-либо устройства, настоятельно рекомендуем опираться на данную статью. Это поможет вашему проекту успешно пройти внутреннюю проверку и значительно повысит его шансы на воплощение в реальную модель. Материал будет одинаково полезен как для специалистов по компьютерной графике, стремящихся точно воспроизвести стиль в цифровых сценах, так и для инженеров, занимающихся созданием физических прототипов в нашей дизайн-философии.</p>
+                    </div>
+
+                    <div class="t3-block" id="t3-windows">
+                        <h2>Окна и цвета</h2>
+                        <p>Ключевое внимание стоит уделить цветам - именно они придают стилю Shnuk ту самую узнаваемую индивидуальность.</p>
+                        <p>Базовая палитра насчитывает четыре основных цвета: красный, серый, черный и белый.</p>
+                        <p>Белый цвет, как правило, отводится под фоновые поверхности окон, а также используется для набора текста в заголовках. Красный применяется для подложек заголовков и тех элементов интерфейса, которые требуют визуального акцента. Черный предназначен для основного массива текста, тогда как серый традиционно закреплен за второстепенными элементами, не претендующими на первое место в иерархии. Рекомендуется использовать палитру Shnuk именно в таком распределении ролей, чтобы сохранить аутентичность.</p>
+                        <p>Теперь перейдем к оконным элементам. В дизайне Shnuk предусмотрено два типа окон: фоновые подложки для разделов (выступающие в роли базовой поверхности) и стандартные окна, чаще всего всплывающие. Все они выполняются в белом цвете и не имеют закруглений по углам. Для отделения окон от основного фона допускается применение легких, едва заметных теней, обеспечивающих необходимую глубину композиции.</p>
+                    </div>
+
+                    <div class="t3-block" id="t3-text">
+                        <h2>Текст</h2>
+                        <p>Для всех текстовых элементов в системе используется единый моноширинный шрифт TT_Paplane_Trial_Regular. Заголовки всегда размещаются на красной подложке строгой прямоугольной формы (без закруглений), при этом сам текст на таких подложках остается белым для максимальной контрастности.</p>
+                        <p>Главные заголовочные блоки (например, название всей страницы) могут иметь дополнительную интерактивность: на ПК они способны вращаться в трехмерном пространстве, отслеживая движение курсора, а на мобильных устройствах - менять угол наклона за счет данных гироскопа. Аналогичный принцип оформления применяется и к кнопкам: они также оснащаются красной подложкой, а их текстовое содержимое неизменно выполняется белым цветом.</p>
+                    </div>
+
+                    <div class="t3-block" id="t3-elements">
+                        <h2>Другие элементы</h2>
+                        <p>В визуальной системе Shnuk активно используются простые геометрические фигуры, которые служат инструментами для смыслового выделения и структурного подчеркивания важных зон. Особенно широко этот прием применяется при проектировании корпусов устройств - достаточно взглянуть на оформление камерного блока в смартфонах компании, где геометрия играет ключевую роль.</p>
+                        <p>Основными формами в нашем дизайне являются круг, квадрат, прямоугольник и пятиугольник. Важное правило: все перечисленные фигуры лишены скруглений по краям, что соответствует общей суровой и технологичной эстетике бренда.</p>
+                    </div>
                 </div>
-                <p>Для всех текстовых элементов в системе используется единый моноширинный шрифт TT_Paplane_Trial_Regular. Заголовки всегда размещаются на красной подложке строгой прямоугольной формы (без закруглений), при этом сам текст на таких подложках остается белым для максимальной контрастности.</p>
-                <p>Главные заголовочные блоки (например, название всей страницы) могут иметь дополнительную интерактивность: на ПК они способны вращаться в трехмерном пространстве, отслеживая движение курсора, а на мобильных устройствах - менять угол наклона за счет данных гироскопа. Аналогичный принцип оформления применяется и к кнопкам: они также оснащаются красной подложкой, а их текстовое содержимое неизменно выполняется белым цветом.</p>
+            </div>
+        </section>
+
+        <section class="year-section" id="year2025">
+            <div class="year-title">2025</div>
+
+            <div class="content-block">
+                <div class="content-heading">The Tapok Cross</div>
+                <div class="content-text">
+                    <p>В октябре 2025 года Илья Степанов предложил идею персонажа Умный тапок, вскоре Главин Мстислав начал делать анимации с ним, в декабре 2025 года вышел первый эпизод The Tapok Cross. В январе 2026 года The Tapok Cross стал проектом Shnuk.</p>
+                </div>
             </div>
 
-            <div class="t3-block" id="t3-elements">
-                <h2>Другие элементы</h2>
-                <div class="t3-image">
-                    <img src="elements.png" alt="Геометрические элементы Shnuk">
+            <div class="content-block">
+                <div class="content-heading">Кризис</div>
+                <div class="content-text">
+                    <p>Осенью 2025 года Shnuk столкнулся с сильнейшим кризисом в его истории. Ранее участники Shnuk продавали аппараты бренда своим одноклассникам и другим ученикам начальных классов, но после перехода в пятый класс в сентябре 2025 года, многие из бывших одноклассников оказались в разных классах, из-за чего основная бывшая аудитория была потеряна. Shnuk постепенно начал восстанавливаться после запуска сериала The Tapok Cross и прихода Главина Мстислава. Первые продажи Shnuk за учебный год стартовали в мае 2026 года.</p>
                 </div>
-                <p>В визуальной системе Shnuk активно используются простые геометрические фигуры, которые служат инструментами для смыслового выделения и структурного подчеркивания важных зон. Особенно широко этот прием применяется при проектировании корпусов устройств - достаточно взглянуть на оформление камерного блока в смартфонах компании, где геометрия играет ключевую роль.</p>
-                <p>Основными формами в нашем дизайне являются круг, квадрат, прямоугольник и пятиугольник. Важное правило: все перечисленные фигуры лишены скруглений по краям, что соответствует общей суровой и технологичной эстетике бренда.</p>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <section class="year-section" id="year2024">
+            <div class="year-title">2024</div>
+
+            <div class="content-block">
+                <div class="content-heading">Старый Shnuk</div>
+                <div class="content-text">
+                    <p>До кризиса осени 2025 года, Shnuk был довольно стабилен. Старые устройства делались вручную без печати, не имели каких либо QR кодов и по большей части покупались по приколу. Средняя их цена была от 10 до 15 рублей.</p>
+                </div>
+                <div class="old-anim">
+                    <img id="oldAnimImg" src="old-anim1.0.png" alt="Old Shnuk animation">
+                </div>
+            </div>
+        </section>
+
+        <section class="year-section" id="year2023">
+            <div class="year-title">2023</div>
+
+            <div class="content-block">
+                <div class="content-heading">Начало</div>
+                <div class="content-text">
+                    <p>В 2023 году неизвестный второклассник предложил Роману Мужикову идею — продавать бумажные телефоны младшеклассникам. Роману эта идея пришлась по душе, так и появился «Шнюк». Название и первый логотип «компании» придумал Андрей Петрунин.</p>
+                </div>
+                <div class="old-anim2-container">
+                    <img id="oldAnim2Img" src="old-anim2.0.png" alt="Old Shnuk animation 2">
+                </div>
+                <div class="content-text" style="margin-top: 30px;">
+                    <p>Устройства того времени не имели каких-либо функций и были, по сути, бесполезными. Но, несмотря на это, «шнюки» пользовались довольно большой популярностью среди учеников «Б» класса. У устройств «Шнюк» не было единого дизайна или отличительной черты, которая выделяла бы их на общем фоне. Их главным отличием, по сути, было лишь то, что они являлись единственными бумажными телефонами.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-block">
+            <div class="final-anim">
+                <img id="finalAnimImg" src="old-anim3.0.png" alt="Shnuk final animation">
+            </div>
+
+            <div class="authors-block">
+                <div class="authors-col left">
+                    <div class="author-name">Главин Мстислав</div>
+                    <div class="author-role">дизайн, сайт, маркетинг, разработка, html и java script</div>
+                    <div class="author-name">Андрей Петрунин</div>
+                    <div class="author-role">ничего не сделал</div>
+                </div>
+                <div class="authors-col center">
+                    <div class="author-name">Илья Байков</div>
+                    <div class="author-role">python</div>
+                    <div class="author-name">Роман Мужиков</div>
+                    <div class="author-role">основатель</div>
+                </div>
+                <div class="authors-col right">
+                    <div class="author-name">Илья Степанов</div>
+                    <div class="author-role">некоторые идеи</div>
+                    <div class="author-name">Григорий Потапов</div>
+                    <div class="author-role">ничего</div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script>
         (function() {
-
-            const DEVICES = {
-                shnuk3: {
-                    displayName: "SHNUK 3",
-                    supportStart: new Date("2026-09-29T00:00:00"),
-                    supportEnd: new Date("2026-11-30T23:59:59")
-                },
-                shnuk3blaze: {
-                    displayName: "SHNUK 3 BLAZE",
-                    supportStart: new Date("2026-09-29T00:00:00"),
-                    supportEnd: new Date("2026-12-30T23:59:59")
-                },
-                shnuk4: {
-                    displayName: "SHNUK 4",
-                    supportStart: new Date("2026-10-11T00:00:00"),
-                    supportEnd: new Date("2027-01-11T23:59:59")
-                }
-            };
-
-            const heading = document.getElementById('heading3d');
             const customCursor = document.getElementById('customCursor');
-            const floatingHeading = document.getElementById('floatingHeading');
-            const scrollGrayBg = document.getElementById('scrollGrayBg');
-
-            const historyOverlay = document.getElementById('historyOverlay');
-            const historyBtn = document.getElementById('historyBtn');
-            const historyClose = document.getElementById('historyClose');
-
-            const t3Page = document.getElementById('t3Page');
-            const t3Btn = document.getElementById('t3Btn');
-            const t3Close = document.getElementById('t3Close');
-
-            const opensourcePage = document.getElementById('opensourcePage');
-            const openSourceBtn = document.getElementById('openSourceBtn');
-            const osClose = document.getElementById('osClose');
-
-            const deviceSelect = document.getElementById('deviceSelect');
-            const timerDeviceName = document.getElementById('timerDeviceName');
-            const timerDays = document.getElementById('timerDays');
-            const timerHours = document.getElementById('timerHours');
-            const timerMinutes = document.getElementById('timerMinutes');
-            const timerSeconds = document.getElementById('timerSeconds');
-            const timerStatus = document.getElementById('timerStatus');
-
-            const dockItems = document.querySelectorAll('.dock .dock-item');
-
-            const MAX_ANGLE = 20;
-
-            const DOCK_THRESHOLD = 120;
-            const GRAY_FULL_THRESHOLD = 600;
-            let docked = false;
-
-            function onScroll() {
-                const y = window.scrollY || window.pageYOffset;
-
-                if (y > DOCK_THRESHOLD && !docked) {
-                    floatingHeading.classList.add('docked');
-                    floatingHeading.classList.remove('hero-pos');
-                    docked = true;
-                } else if (y <= DOCK_THRESHOLD && docked) {
-                    floatingHeading.classList.remove('docked');
-                    floatingHeading.classList.add('hero-pos');
-                    docked = false;
-                }
-
-                let grayOpacity = y / GRAY_FULL_THRESHOLD;
-                if (grayOpacity > 1) grayOpacity = 1;
-                if (grayOpacity < 0) grayOpacity = 0;
-                scrollGrayBg.style.opacity = grayOpacity;
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
-
-            const sectionIds = ['updatesSection', 'messageSection', 'aboutSection', 'devSection', 'lawSection'];
-            const sectionEls = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-
-            function setActiveDock(sectionId) {
-                dockItems.forEach(item => {
-                    if (item.getAttribute('data-section') === sectionId) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            }
-
-            function updateActiveSection() {
-                const scrollPos = window.scrollY || window.pageYOffset;
-                const viewportMid = scrollPos + window.innerHeight * 0.35;
-
-                let activeId = sectionEls[0] ? sectionEls[0].id : null;
-
-                sectionEls.forEach(sec => {
-                    const top = sec.offsetTop;
-                    if (viewportMid >= top) {
-                        activeId = sec.id;
-                    }
-                });
-
-                if (scrollPos < 100 && sectionEls[0]) {
-                    activeId = sectionEls[0].id;
-                }
-
-                setActiveDock(activeId);
-            }
-
-            window.addEventListener('scroll', updateActiveSection, { passive: true });
-            window.addEventListener('resize', updateActiveSection);
-            updateActiveSection();
-
-            dockItems.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href && href.startsWith('#')) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            const targetTop = target.getBoundingClientRect().top + window.pageYOffset - 40;
-                            window.scrollTo({ top: targetTop, behavior: 'smooth' });
-                            setActiveDock(this.getAttribute('data-section'));
-                        }
-                    }
-                });
-            });
-
-            let currentDeviceKey = 'shnuk3';
-            let timerInterval = null;
-
-            function pad(num) {
-                return String(num).padStart(2, '0');
-            }
-
-            function formatDate(date) {
-                const d = pad(date.getDate());
-                const m = pad(date.getMonth() + 1);
-                const y = date.getFullYear();
-                return d + '.' + m + '.' + y;
-            }
-
-            function renderDevice(deviceKey) {
-                const device = DEVICES[deviceKey];
-                if (!device) return;
-                timerDeviceName.textContent = device.displayName;
-                updateTimer();
-            }
-
-            function updateTimer() {
-                const device = DEVICES[currentDeviceKey];
-                if (!device) return;
-
-                const now = new Date();
-                const start = device.supportStart;
-                const end = device.supportEnd;
-
-                if (now < start) {
-                    timerDays.textContent = "00";
-                    timerHours.textContent = "00";
-                    timerMinutes.textContent = "00";
-                    timerSeconds.textContent = "00";
-                    timerStatus.textContent = "Поддержка ещё не началась. Старт " + formatDate(start);
-                    timerStatus.classList.remove('ended');
-                    return;
-                }
-
-                if (now > end) {
-                    timerDays.textContent = "00";
-                    timerHours.textContent = "00";
-                    timerMinutes.textContent = "00";
-                    timerSeconds.textContent = "00";
-                    timerStatus.textContent = "Поддержка завершена " + formatDate(end);
-                    timerStatus.classList.add('ended');
-                    return;
-                }
-
-                let diff = end - now;
-                const totalSeconds = Math.floor(diff / 1000);
-
-                const days = Math.floor(totalSeconds / 86400);
-                const hours = Math.floor((totalSeconds % 86400) / 3600);
-                const minutes = Math.floor((totalSeconds % 3600) / 60);
-                const seconds = totalSeconds % 60;
-
-                timerDays.textContent = pad(days);
-                timerHours.textContent = pad(hours);
-                timerMinutes.textContent = pad(minutes);
-                timerSeconds.textContent = pad(seconds);
-
-                timerStatus.textContent = "Поддержка активна до " + formatDate(end);
-                timerStatus.classList.remove('ended');
-            }
-
-            function startTimer() {
-                if (timerInterval) clearInterval(timerInterval);
-                updateTimer();
-                timerInterval = setInterval(updateTimer, 1000);
-            }
-
-            deviceSelect.addEventListener('change', function() {
-                currentDeviceKey = this.value;
-                renderDevice(currentDeviceKey);
-                startTimer();
-            });
-
-            renderDevice(currentDeviceKey);
-            startTimer();
-
-            historyBtn.addEventListener('click', function() {
-                historyOverlay.classList.add('open');
-            });
-
-            historyClose.addEventListener('click', function() {
-                historyOverlay.classList.remove('open');
-            });
-
-            historyOverlay.addEventListener('click', function(e) {
-                if (e.target === historyOverlay) {
-                    historyOverlay.classList.remove('open');
-                }
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    if (historyOverlay.classList.contains('open')) {
-                        historyOverlay.classList.remove('open');
-                    }
-                    if (t3Page.classList.contains('open')) {
-                        t3Page.classList.remove('open');
-                        document.body.style.overflow = '';
-                    }
-                    if (opensourcePage.classList.contains('open')) {
-                        opensourcePage.classList.remove('open');
-                        document.body.style.overflow = '';
-                    }
-                }
-            });
-
-            openSourceBtn.addEventListener('click', function() {
-                opensourcePage.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
-
-            osClose.addEventListener('click', function() {
-                opensourcePage.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-
-            opensourcePage.addEventListener('click', function(e) {
-                if (e.target === opensourcePage) {
-                    opensourcePage.classList.remove('open');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            t3Btn.addEventListener('click', function() {
-                t3Page.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
-
-            t3Close.addEventListener('click', function() {
-                t3Page.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-
-            t3Page.addEventListener('click', function(e) {
-                if (e.target === t3Page) {
-                    t3Page.classList.remove('open');
-                    document.body.style.overflow = '';
-                }
-            });
 
             const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768;
-
-            function getCenter(element) {
-                const rect = element.getBoundingClientRect();
-                return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
-            }
-
-            function updateRotation(clientX, clientY) {
-                if (!heading) return;
-                const center = getCenter(floatingHeading);
-                const deltaX = clientX - center.x;
-                const deltaY = clientY - center.y;
-                const rect = floatingHeading.getBoundingClientRect();
-                const maxDeltaX = rect.width / 2;
-                const maxDeltaY = rect.height / 2;
-                let normX = Math.min(Math.max(deltaX / maxDeltaX, -1), 1);
-                let normY = Math.min(Math.max(deltaY / maxDeltaY, -1), 1);
-                const angleY = normX * MAX_ANGLE;
-                const angleX = -normY * MAX_ANGLE;
-                heading.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-            }
-
-            function updateRotationGyro(beta, gamma) {
-                if (!heading) return;
-                const angleX = Math.min(Math.max((beta || 0) * 0.3, -MAX_ANGLE), MAX_ANGLE);
-                const angleY = Math.min(Math.max((gamma || 0) * 0.3, -MAX_ANGLE), MAX_ANGLE);
-                heading.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-            }
 
             function updateCursor(clientX, clientY) {
                 if (customCursor) {
@@ -1640,34 +1198,465 @@
             }
 
             if (isMobile) {
-                if (window.DeviceOrientationEvent) {
-                    window.addEventListener('deviceorientation', function(e) {
-                        updateRotationGyro(e.beta, e.gamma);
-                    });
-                }
                 if (customCursor) customCursor.style.display = 'none';
             } else {
                 document.addEventListener('mousemove', function(e) {
-                    updateRotation(e.clientX, e.clientY);
                     updateCursor(e.clientX, e.clientY);
                 });
 
                 document.addEventListener('mouseleave', function() {
                     customCursor.style.display = 'none';
-                    if (heading) {
-                        heading.style.transform = 'rotateX(0deg) rotateY(0deg)';
-                        heading.style.transition = 'transform 0.5s ease-out';
-                        setTimeout(() => { heading.style.transition = 'transform 0.1s ease-out'; }, 500);
-                    }
                 });
 
                 document.addEventListener('mouseenter', function() {
                     customCursor.style.display = 'block';
-                    if (heading) heading.style.transition = 'transform 0.1s ease-out';
                 });
 
                 if (customCursor) customCursor.style.display = 'block';
             }
+
+            const QUOTES = [
+                {
+                    text: "«Выбери себе работу по душе, и тебе не придётся работать ни одного дня в своей жизни.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Не важно, как медленно ты идёшь, главное — не останавливаться.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Три пути ведут к знанию: путь размышления — это путь самый благородный, путь подражания — это путь самый лёгкий, и путь опыта — это путь самый горький.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Учиться и не размышлять — бесполезно, размышлять и не учиться — опасно.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Настоящая мудрость — это знать, чего ты не знаешь.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Прежде чем мстить, вырой две могилы.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Всё имеет свою красоту, но не каждый её видит.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Молчание — верный друг, который никогда не изменит.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Когда ты уже находишься на вершине, продолжай подниматься.»",
+                    author: "— Конфуций"
+                },
+                {
+                    text: "«Не бойся, что не знаешь, — бойся, что не учишься.»",
+                    author: "— Конфуций"
+                }
+            ];
+
+            const quoteText = document.getElementById('quoteText');
+            const quoteAuthor = document.getElementById('quoteAuthor');
+
+            let lastIndex = -1;
+            let typingTimeout = null;
+            let cycleTimeout = null;
+            let typeCursorEl = null;
+
+            const FADE_DURATION = 500;
+            const TYPE_SPEED = 45;
+            const HOLD_DURATION = 3500;
+
+            function pickNextIndex() {
+                let idx = Math.floor(Math.random() * QUOTES.length);
+                if (QUOTES.length > 1) {
+                    while (idx === lastIndex) {
+                        idx = Math.floor(Math.random() * QUOTES.length);
+                    }
+                }
+                return idx;
+            }
+
+            function typeQuote(q) {
+                quoteText.classList.remove('fade-out');
+                quoteAuthor.classList.remove('fade-out');
+                quoteText.textContent = '';
+                quoteAuthor.textContent = '';
+
+                typeCursorEl = document.createElement('span');
+                typeCursorEl.className = 'type-cursor';
+                quoteText.appendChild(typeCursorEl);
+
+                let i = 0;
+                const full = q.text;
+
+                function typeNext() {
+                    if (i < full.length) {
+                        typeCursorEl.insertAdjacentText('beforebegin', full.charAt(i));
+                        i++;
+                        typingTimeout = setTimeout(typeNext, TYPE_SPEED);
+                    } else {
+                        if (typeCursorEl && typeCursorEl.parentNode) {
+                            typeCursorEl.parentNode.removeChild(typeCursorEl);
+                        }
+                        typeCursorEl = null;
+                        quoteAuthor.textContent = q.author;
+                        cycleTimeout = setTimeout(fadeAndNext, HOLD_DURATION);
+                    }
+                }
+
+                typeNext();
+            }
+
+            function fadeAndNext() {
+                quoteText.classList.add('fade-out');
+                quoteAuthor.classList.add('fade-out');
+
+                cycleTimeout = setTimeout(function() {
+                    const idx = pickNextIndex();
+                    lastIndex = idx;
+                    typeQuote(QUOTES[idx]);
+                }, FADE_DURATION);
+            }
+
+            function startCycle() {
+                if (typingTimeout) clearTimeout(typingTimeout);
+                if (cycleTimeout) clearTimeout(cycleTimeout);
+                if (typeCursorEl && typeCursorEl.parentNode) {
+                    typeCursorEl.parentNode.removeChild(typeCursorEl);
+                }
+                typeCursorEl = null;
+                quoteText.classList.remove('fade-out');
+                quoteAuthor.classList.remove('fade-out');
+
+                const idx = pickNextIndex();
+                lastIndex = idx;
+                cycleTimeout = setTimeout(function() {
+                    typeQuote(QUOTES[idx]);
+                }, 300);
+            }
+
+            startCycle();
+
+            // ===== АНИМАЦИЯ СТАРОГО SHNUK (2024) =====
+            const oldAnimImg = document.getElementById('oldAnimImg');
+            const OLD_FRAMES = ['old-anim1.0.png', 'old-anim1.1.png', 'old-anim1.2.png'];
+            let oldFrameIndex = 0;
+
+            if (oldAnimImg) {
+                OLD_FRAMES.forEach(function(src) {
+                    const im = new Image();
+                    im.src = src;
+                });
+
+                setInterval(function() {
+                    oldFrameIndex = (oldFrameIndex + 1) % OLD_FRAMES.length;
+                    oldAnimImg.src = OLD_FRAMES[oldFrameIndex];
+                }, 100);
+            }
+
+            // ===== АНИМАЦИЯ СТАРОГО SHNUK (2023) =====
+            const oldAnim2Img = document.getElementById('oldAnim2Img');
+            const OLD_FRAMES2 = ['old-anim2.0.png', 'old-anim2.1.png', 'old-anim2.2.png'];
+            let oldFrame2Index = 0;
+
+            if (oldAnim2Img) {
+                OLD_FRAMES2.forEach(function(src) {
+                    const im = new Image();
+                    im.src = src;
+                });
+
+                setInterval(function() {
+                    oldFrame2Index = (oldFrame2Index + 1) % OLD_FRAMES2.length;
+                    oldAnim2Img.src = OLD_FRAMES2[oldFrame2Index];
+                }, 100);
+            }
+
+            // ===== АНИМАЦИЯ ВНИЗУ (2026) =====
+            const finalAnimImg = document.getElementById('finalAnimImg');
+            const FINAL_FRAMES = ['old-anim3.0.png', 'old-anim3.1.png', 'old-anim3.2.png'];
+            let finalFrameIndex = 0;
+
+            if (finalAnimImg) {
+                FINAL_FRAMES.forEach(function(src) {
+                    const im = new Image();
+                    im.src = src;
+                });
+
+                setInterval(function() {
+                    finalFrameIndex = (finalFrameIndex + 1) % FINAL_FRAMES.length;
+                    finalAnimImg.src = FINAL_FRAMES[finalFrameIndex];
+                }, 100);
+            }
+
+            const introScreen = document.getElementById('introScreen');
+            const topBar = document.getElementById('topBar');
+            const timelineTree = document.getElementById('timelineTree');
+            const vignette = document.getElementById('vignette');
+            const vignetteBlur = document.getElementById('vignetteBlur');
+
+            const BLUR_FADE_DISTANCE = 400;
+
+            const yearSections = [
+                document.getElementById('year2026'),
+                document.getElementById('year2025'),
+                document.getElementById('year2024'),
+                document.getElementById('year2023')
+            ].filter(Boolean);
+
+            const treeNodes = document.querySelectorAll('.timeline-tree .tree-node');
+
+            const year2025Section = document.getElementById('year2025');
+            const year2023Section = document.getElementById('year2023');
+
+            function setActiveYear(yearId) {
+                treeNodes.forEach(node => {
+                    if (node.getAttribute('data-year') === yearId) {
+                        node.classList.add('active');
+                    } else {
+                        node.classList.remove('active');
+                    }
+                });
+            }
+
+            function updateActiveYear() {
+                const viewportMid = (window.scrollY || window.pageYOffset) + window.innerHeight * 0.5;
+
+                let activeId = yearSections[0] ? yearSections[0].id : null;
+                yearSections.forEach(sec => {
+                    const top = sec.offsetTop;
+                    if (viewportMid >= top) {
+                        activeId = sec.id;
+                    }
+                });
+                if (activeId) setActiveYear(activeId);
+            }
+
+            let lastYellowLevel = -1;
+
+            function onScroll() {
+                const y = window.scrollY || window.pageYOffset;
+
+                let progress = y / BLUR_FADE_DISTANCE;
+                if (progress < 0) progress = 0;
+                if (progress > 1) progress = 1;
+
+                const opacity = 1 - progress;
+                const blur = progress * 20;
+                const scale = 1 - progress * 0.05;
+
+                introScreen.style.opacity = opacity;
+                introScreen.style.filter = 'blur(' + blur + 'px)';
+                introScreen.style.transform = 'scale(' + scale + ')';
+                introScreen.style.pointerEvents = progress >= 1 ? 'none' : 'auto';
+
+                if (progress > 0.15) {
+                    topBar.classList.add('visible');
+                    timelineTree.classList.add('visible');
+                } else {
+                    topBar.classList.remove('visible');
+                    timelineTree.classList.remove('visible');
+                }
+
+                if (year2025Section) {
+                    const half2025 = year2025Section.offsetTop + year2025Section.offsetHeight * 0.5;
+                    const topBarCenter = y + 32;
+                    if (topBarCenter >= half2025) {
+                        topBar.classList.add('dark');
+                    } else {
+                        topBar.classList.remove('dark');
+                    }
+                }
+
+                let vProgress = 0;
+                if (year2025Section && year2023Section) {
+                    const vStart = year2025Section.offsetTop + year2025Section.offsetHeight * 0.5;
+                    const vEnd = year2023Section.offsetTop + year2023Section.offsetHeight;
+                    const vRange = Math.max(vEnd - vStart, 1);
+                    vProgress = (y + window.innerHeight * 0.5 - vStart) / vRange;
+                }
+                if (vProgress < 0) vProgress = 0;
+                if (vProgress > 1) vProgress = 1;
+
+                const vOpacity = vProgress * 0.7;
+                const vBlurOpacity = vProgress * 1.0;
+
+                vignette.style.opacity = vOpacity;
+                vignetteBlur.style.opacity = vBlurOpacity;
+
+                const yellowProgress = vProgress / 3;
+                const yellowLevel = Math.round(yellowProgress * 100) / 100;
+                if (yellowLevel !== lastYellowLevel) {
+                    const r = Math.round(255 - yellowProgress * 10);
+                    const g = Math.round(255 - yellowProgress * 30);
+                    const b = Math.round(255 - yellowProgress * 120);
+                    document.body.style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+                    lastYellowLevel = yellowLevel;
+                }
+
+                updateActiveYear();
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            onScroll();
+
+            treeNodes.forEach(node => {
+                node.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-year');
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - 40;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ===== ПОИСК =====
+            const searchWrapper = document.getElementById('searchWrapper');
+            const searchBtn = document.getElementById('searchBtn');
+            const searchInput = document.getElementById('searchInput');
+            const mainSite = document.getElementById('mainSite');
+
+            let searchIsOpen = false;
+
+            function openSearch() {
+                searchWrapper.classList.add('open');
+                searchIsOpen = true;
+                setTimeout(function() {
+                    searchInput.focus();
+                }, 100);
+            }
+
+            function closeSearch() {
+                searchWrapper.classList.remove('open');
+                searchIsOpen = false;
+                searchInput.value = '';
+                clearHighlights();
+            }
+
+            searchBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!searchIsOpen) {
+                    openSearch();
+                } else {
+                    closeSearch();
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!searchIsOpen) return;
+                if (searchWrapper.contains(e.target)) return;
+                closeSearch();
+            });
+
+            document.addEventListener('touchstart', function(e) {
+                if (!searchIsOpen) return;
+                if (searchWrapper.contains(e.target)) return;
+                closeSearch();
+            }, { passive: true });
+
+            function clearHighlights() {
+                const marks = mainSite.querySelectorAll('mark.search-highlight');
+                marks.forEach(function(mark) {
+                    const parent = mark.parentNode;
+                    if (parent) {
+                        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                        parent.normalize();
+                    }
+                });
+            }
+
+            function escapeRegExp(str) {
+                return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            function highlightTextNodes(root, query) {
+                if (!query) return;
+                const regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+                const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                    acceptNode: function(node) {
+                        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                        if (node.parentNode && node.parentNode.nodeName === 'MARK') return NodeFilter.FILTER_REJECT;
+                        if (!regex.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+                        regex.lastIndex = 0;
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                });
+
+                const textNodes = [];
+                while (walker.nextNode()) {
+                    textNodes.push(walker.currentNode);
+                }
+
+                textNodes.forEach(function(node) {
+                    const text = node.nodeValue;
+                    regex.lastIndex = 0;
+                    if (!regex.test(text)) return;
+                    regex.lastIndex = 0;
+                    const frag = document.createDocumentFragment();
+                    let lastIndex = 0;
+                    let match;
+                    while ((match = regex.exec(text)) !== null) {
+                        const before = text.slice(lastIndex, match.index);
+                        if (before) frag.appendChild(document.createTextNode(before));
+                        const mark = document.createElement('mark');
+                        mark.className = 'search-highlight';
+                        mark.textContent = match[0];
+                        const angle = (Math.random() * 30 - 15).toFixed(1);
+                        mark.style.transform = 'rotate(' + angle + 'deg)';
+                        mark.style.transformOrigin = 'center';
+                        frag.appendChild(mark);
+                        lastIndex = match.index + match[0].length;
+                        if (match[0].length === 0) regex.lastIndex++;
+                    }
+                    const after = text.slice(lastIndex);
+                    if (after) frag.appendChild(document.createTextNode(after));
+                    node.parentNode.replaceChild(frag, node);
+                });
+            }
+
+            function performSearch(query) {
+                clearHighlights();
+                const q = query.trim();
+                if (!q) return;
+                highlightTextNodes(mainSite, q);
+
+                const firstMark = mainSite.querySelector('mark.search-highlight');
+                if (firstMark) {
+                    const rect = firstMark.getBoundingClientRect();
+                    const top = rect.top + window.pageYOffset - window.innerHeight * 0.3;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            }
+
+            searchInput.addEventListener('input', function() {
+                const q = searchInput.value.trim();
+                if (q.length >= 1) {
+                    performSearch(q);
+                } else {
+                    clearHighlights();
+                }
+            });
+
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch(searchInput.value);
+                }
+                if (e.key === 'Escape') {
+                    closeSearch();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && searchIsOpen) {
+                    closeSearch();
+                }
+            });
 
         })();
     </script>
